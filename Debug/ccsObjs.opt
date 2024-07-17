@@ -1,0 +1,14 @@
+"./AESoperations.o"
+"./accel.o"
+"./main.o"
+"./matrix_multiplication.o"
+"./rng.o"
+"./watchdog.o"
+"../driverlib_objs/aes256.o"
+"../driverlib_objs/wdt_a.o"
+"./libPF/PF_sim.o"
+-T"../msp430fr5994.ld"
+-Wl,--start-group
+-lgcc
+-lc
+-Wl,--end-group
