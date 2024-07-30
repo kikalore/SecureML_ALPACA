@@ -2,7 +2,7 @@
 #include <string.h>
 #include <msp430.h>
 #include <stdio.h>
-
+#include <constants.h>
 #include <libalpaca/alpaca.h>
 
 __nv uint16_t scratch_bak[SCRATCH_SIZE];

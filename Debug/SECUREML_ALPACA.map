@@ -97,7 +97,7 @@ c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clzdi2.o)
 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clz.o)
                               c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clzdi2.o) (__clz_tab)
 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                              ./main_secureML_alpaca.o (__mspabi_mpyi_f5hw)
+                              ./matrix_multiplication.o (__mspabi_mpyi_f5hw)
 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_bss.o)
                               ./rng.o (__crt0_init_bss)
 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_movedata.o)
@@ -455,72 +455,71 @@ __reset_vector  0x0000fffe        0x2
                 0x00004000                . = ALIGN (0x2)
  *(.lower.rodata.* .lower.rodata)
 
-.rodata         0x00004000      0x2f9
+.rodata         0x00004000      0x325
                 0x00004000                . = ALIGN (0x2)
  *(.plt)
  *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
  .rodata.str1.1
                 0x00004000       0x89 ./AESoperations.o
  .rodata.str1.1
-                0x00004089       0x98 ./main_secureML_alpaca.o
+                0x00004089       0xc5 ./main_secureML_alpaca.o
  .rodata.str1.1
-                0x00004121       0x26 ./matrix_multiplication.o
+                0x0000414e       0x26 ./matrix_multiplication.o
  .rodata.str1.1
-                0x00004147        0xe ./libPF/PF_sim.o
- *fill*         0x00004155        0x1 
+                0x00004174        0xe ./libPF/PF_sim.o
  .rodata._global_impure_ptr
-                0x00004156        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-impure.o)
-                0x00004156                _global_impure_ptr
+                0x00004182        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-impure.o)
+                0x00004182                _global_impure_ptr
  .rodata.str1.1
-                0x0000415a        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-impure.o)
+                0x00004186        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-impure.o)
  .rodata._puts_r.str1.1
-                0x0000415c        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
+                0x00004188        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
  .rodata.__sf_fake_stderr
-                0x0000415c       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x0000415c                __sf_fake_stderr
+                0x00004188       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00004188                __sf_fake_stderr
  .rodata.__sf_fake_stdout
-                0x00004174       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00004174                __sf_fake_stdout
+                0x000041a0       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x000041a0                __sf_fake_stdout
  .rodata.__sf_fake_stdin
-                0x0000418c       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x0000418c                __sf_fake_stdin
+                0x000041b8       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x000041b8                __sf_fake_stdin
  .rodata._vfprintf_r.str1.1
-                0x000041a4       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
+                0x000041d0       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
  .rodata._setlocale_r.str1.1
-                0x000041b5        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x000041e1        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
                                   0x9 (size before relaxing)
  .rodata.str1.1
-                0x000041bb        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x000041e7        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
  .rodata._printf_i.str1.1
-                0x000041bd       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
+                0x000041e9       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
  .rodata.__clz_tab
-                0x000041df      0x100 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clz.o)
-                0x000041df                __clz_tab
+                0x0000420b      0x100 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clz.o)
+                0x0000420b                __clz_tab
  .rodata._sbrk.str1.1
-                0x000042df       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+                0x0000430b       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
  *(.rodata1)
  *(.gcc_except_table)
  *(.gcc_except_table.*)
 
-.rodata2        0x000042fc       0x64
-                0x000042fc                . = ALIGN (0x2)
+.rodata2        0x00004328       0x64
+                0x00004328                . = ALIGN (0x2)
                 [!provide]                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                PROVIDE (__preinit_array_end = .)
-                0x000042fc                . = ALIGN (0x2)
+                0x00004328                . = ALIGN (0x2)
                 [!provide]                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
                 [!provide]                PROVIDE (__init_array_end = .)
-                0x000042fc                . = ALIGN (0x2)
+                0x00004328                . = ALIGN (0x2)
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(.fini_array)
  *(SORT_BY_NAME(.fini_array.*))
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x000042fc                . = ALIGN (0x2)
+                0x00004328                . = ALIGN (0x2)
  *(.eh_frame_hdr)
  *(.eh_frame)
- .eh_frame      0x000042fc       0x64 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_udivdi3.o)
+ .eh_frame      0x00004328       0x64 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_udivdi3.o)
  *crtbegin*.o(.ctors)
  *(EXCLUDE_FILE(*crtend*.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
@@ -530,46 +529,61 @@ __reset_vector  0x0000fffe        0x2
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
 
-.persistent     0x00004360      0x190
-                0x00004360                . = ALIGN (0x2)
-                0x00004360                PROVIDE (__persistent_start = .)
+.persistent     0x0000438c      0x2b2
+                0x0000438c                . = ALIGN (0x2)
+                0x0000438c                PROVIDE (__persistent_start = .)
  *(.persistent)
- .persistent    0x00004360       0x42 ./alpaca.o
-                0x00004360                _numBoots
-                0x00004362                curctx
-                0x00004366                context_0
-                0x0000436c                context_1
-                0x00004372                num_dirty_gv
-                0x00004374                gv_index
-                0x00004376                data_size_base
-                0x0000437a                data_dest_base
-                0x0000437e                data_src_base
-                0x00004382                scratch_bak
- .persistent    0x000043a2      0x14a ./main_secureML_alpaca.o
-                0x000043a2                _task__entry_task
-                0x000043cc                _task_aggregate_results
-                0x000043f6                _task_tile_process
-                0x00004420                _task_task_init
-                0x0000444a                exacution_counter
-                0x0000444c                data_size
-                0x00004454                data_dest
-                0x00004464                data_src
-                0x00004474                cipherkey
-                0x00004494                execution_counter
-                0x00004496                k
-                0x00004498                j
-                0x0000449a                i
-                0x0000449c                kk
-                0x0000449e                jj
-                0x000044a0                ii
-                0x000044a2                _global_O
-                0x000044c0                _global_W
-                0x000044d8                _global_I
- .persistent    0x000044ec        0x4 ./libPF/PF_sim.o
-                0x000044ec                count
-                0x000044ee                timer_count
-                0x000044f0                . = ALIGN (0x2)
-                0x000044f0                PROVIDE (__persistent_end = .)
+ .persistent    0x0000438c       0x42 ./alpaca.o
+                0x0000438c                _numBoots
+                0x0000438e                curctx
+                0x00004392                context_0
+                0x00004398                context_1
+                0x0000439e                num_dirty_gv
+                0x000043a0                gv_index
+                0x000043a2                data_size_base
+                0x000043a6                data_dest_base
+                0x000043aa                data_src_base
+                0x000043ae                scratch_bak
+ .persistent    0x000043ce      0x26c ./main_secureML_alpaca.o
+                0x000043ce                _task__entry_task
+                0x000043f8                _task_aggregate_results
+                0x00004422                _task_task_decrypt_I_tile
+                0x0000444c                _task_get_input_tile
+                0x00004476                _task_get_input_indeces
+                0x000044a0                _task_task_encrypt_I
+                0x000044ca                _task_task_init
+                0x000044f4                exacution_counter
+                0x000044f6                data_size
+                0x000044fe                data_dest
+                0x0000450e                data_src
+                0x0000451e                execution_counter
+                0x00004520                k
+                0x00004522                j
+                0x00004524                i
+                0x00004526                kk
+                0x00004528                jj
+                0x0000452a                ii
+                0x0000452c                cipherKey
+                0x0000456c                _global_blockColI
+                0x0000456d                _global_blockRowI
+                0x0000456e                _global_col
+                0x0000456f                _global_row
+                0x00004570                _global_O_encrypted
+                0x00004580                _global_Otile
+                0x00004590                _global_W_decrypted_tile
+                0x000045a0                _global_W_encrypted_tile
+                0x000045b0                _global_I_decrypted_tile
+                0x000045c0                _global_I_encrypted_tile
+                0x000045d0                _global_W_encrypted_ECB
+                0x000045e0                _global_I_encrypted_ECB
+                0x000045f0                _global_O
+                0x0000460e                _global_W
+                0x00004626                _global_I
+ .persistent    0x0000463a        0x4 ./libPF/PF_sim.o
+                0x0000463a                count
+                0x0000463c                timer_count
+                0x0000463e                . = ALIGN (0x2)
+                0x0000463e                PROVIDE (__persistent_end = .)
 
 .persistent_hifram
                 0x00010000        0x0
@@ -584,12 +598,12 @@ __reset_vector  0x0000fffe        0x2
 
 .tinyram
 
-.lower.data     0x00001c00        0x0 load address 0x000044f0
+.lower.data     0x00001c00        0x0 load address 0x0000463e
                 0x00001c00                . = ALIGN (0x2)
                 0x00001c00                PROVIDE (__datastart = .)
  *(.lower.data.* .lower.data)
 
-.data           0x00001c00      0x1b0 load address 0x000044f0
+.data           0x00001c00      0x1b0 load address 0x0000463e
                 0x00001c00                . = ALIGN (0x2)
                 [!provide]                PROVIDE (__datastart = .)
  *(.jcr)
@@ -703,17 +717,17 @@ __reset_vector  0x0000fffe        0x2
                 0x00001db0                _edata = .
                 [!provide]                PROVIDE (edata = .)
                 [!provide]                PROVIDE (__dataend = .)
-                0x000044f0                PROVIDE (__romdatastart = LOADADDR (.lower.data))
+                0x0000463e                PROVIDE (__romdatastart = LOADADDR (.lower.data))
                 0x000001b0                PROVIDE (__romdatacopysize = (SIZEOF (.lower.data) + SIZEOF (.data)))
 
-.upper.data     0x00010000        0x2 load address 0x000046a0
-                0x000046a0                __upper_data_init = LOADADDR (.upper.data)
+.upper.data     0x00010000        0x2 load address 0x000047ee
+                0x000047ee                __upper_data_init = LOADADDR (.upper.data)
                 0x00010000        0x2 SHORT 0x1
                 0x00010002                __high_datastart = .
  *(.upper.data.* .upper.data)
                 0x00010002                __high_dataend = .
                 0x00000000                __rom_highdatacopysize = (SIZEOF (.upper.data) - 0x2)
-                0x000046a2                __rom_highdatastart = (LOADADDR (.upper.data) + 0x2)
+                0x000047f0                __rom_highdatastart = (LOADADDR (.upper.data) + 0x2)
 
 .lower.bss      0x00001db0        0x0
                 0x00001db0                . = ALIGN (0x2)
@@ -855,659 +869,662 @@ __reset_vector  0x0000fffe        0x2
                 0x00002c00                PROVIDE (__stack = .)
  *(.stack)
 
-.lower.text     0x000046a2        0x0
-                0x000046a2                . = ALIGN (0x2)
+.lower.text     0x000047f0        0x0
+                0x000047f0                . = ALIGN (0x2)
  *(.lower.text.* .lower.text)
 
-.text           0x000046a2     0x47fa
-                0x000046a2                PROVIDE (_start = .)
-                0x000046a2                . = ALIGN (0x2)
+.text           0x000047f0     0x4886
+                0x000047f0                PROVIDE (_start = .)
+                0x000047f0                . = ALIGN (0x2)
  *(SORT_BY_NAME(.crt_*))
  .crt_0000start
-                0x000046a2        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large/crt0.o
-                0x000046a2                __crt0_start
+                0x000047f0        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large/crt0.o
+                0x000047f0                __crt0_start
  .crt_0100init_bss
-                0x000046a6       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_bss.o)
-                0x000046a6                __crt0_init_bss
+                0x000047f4       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_bss.o)
+                0x000047f4                __crt0_init_bss
  .crt_0300movedata
-                0x000046b6       0x14 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_movedata.o)
-                0x000046b6                __crt0_movedata
+                0x00004804       0x14 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_movedata.o)
+                0x00004804                __crt0_movedata
  .crt_0800call_main
-                0x000046ca        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_main.o)
-                0x000046ca                __crt0_call_main
+                0x00004818        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_main.o)
+                0x00004818                __crt0_call_main
  .crt_0900call_exit
-                0x000046d0        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_callexit.o)
-                0x000046d0                __crt0_call_exit
-                0x000046d4                . = ALIGN (0x2)
+                0x0000481e        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_callexit.o)
+                0x0000481e                __crt0_call_exit
+                0x00004822                . = ALIGN (0x2)
  *(.lowtext)
- .lowtext       0x000046d4       0x1a ./libPF/PF_sim.o
-                0x000046d4                Timer_A
-                0x000046ee                . = ALIGN (0x2)
+ .lowtext       0x00004822       0x1a ./libPF/PF_sim.o
+                0x00004822                Timer_A
+                0x0000483c                . = ALIGN (0x2)
  *(.text .stub .text.* .gnu.linkonce.t.* .text:*)
- .text          0x000046ee        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large/crt0.o
- .text          0x000046ee        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large/crtbegin_no_eh.o
- .text          0x000046ee      0x34e ./AESoperations.o
-                0x000046ee                generateRandomKey
-                0x0000477e                encryptAndStoreInFRAM
-                0x000047a6                decryptAndStoreInSRAM
-                0x000047ce                AES256_decryptMatrix_ECB
-                0x0000483e                AES256_encryptMatrix_ECB
- .text          0x00004a3c      0x13c ./alpaca.o
-                0x00004a3c                task_prologue
-                0x00004ad6                transition_to
-                0x00004b0c                write_to_gbuf
-                0x00004b50                main
- .text          0x00004b78      0x262 ./main_secureML_alpaca.o
-                0x00004b90                task_init
-                0x00004c2c                aggregate_results
-                0x00004c3e                _entry_task
-                0x00004c48                tile_process
-                0x00004dc0                clear_isDirty
-                0x00004dc2                init
-                0x00004dd4                _init
- .text          0x00004dda      0x6e4 ./matrix_multiplication.o
-                0x00004dda                Basic_Multiplication
-                0x00004e6a                Print_Matrix
-                0x00004ec0                Initialiaze_Matrix
-                0x00004f00                Matrix_Equality
-                0x00004f48                Tiled_Multiplication
-                0x0000503a                Tiled_Decryption_Multiplication
- .text          0x000054be      0x558 ./rng.o
-                0x000059fc                rng_generateBytes
- .text          0x00005a16       0x4c ./watchdog.o
-                0x00005a16                msp_watchdog_enable
-                0x00005a24                msp_watchdog_disable
-                0x00005a2c                msp_watchdog_kick
-                0x00005a3e                msp_watchdog_hold
-                0x00005a50                msp_watchdog_release
- .text          0x00005a62      0x3bc ../driverlib_objs/aes256.o
-                0x00005a62                AES256_setCipherKey
-                0x00005ada                AES256_encryptData
-                0x00005b66                AES256_decryptData
-                0x00005bf2                AES256_setDecipherKey
-                0x00005c6a                AES256_clearInterrupt
-                0x00005c74                AES256_getInterruptStatus
-                0x00005c82                AES256_enableInterrupt
-                0x00005c8c                AES256_disableInterrupt
-                0x00005c96                AES256_reset
-                0x00005ca0                AES256_startEncryptData
-                0x00005cee                AES256_startDecryptData
-                0x00005d3c                AES256_startSetDecipherKey
-                0x00005da8                AES256_getDataOut
-                0x00005dfe                AES256_isBusy
-                0x00005e08                AES256_clearErrorFlag
-                0x00005e12                AES256_getErrorFlagStatus
- .text          0x00005e1e       0x68 ../driverlib_objs/wdt_a.o
-                0x00005e1e                WDT_A_hold
-                0x00005e34                WDT_A_start
-                0x00005e46                WDT_A_resetTimer
-                0x00005e5a                WDT_A_initWatchdogTimer
-                0x00005e70                WDT_A_initIntervalTimer
- .text          0x00005e86       0x76 ./libPF/PF_sim.o
-                0x00005ef2                PF_sim_start
- .text          0x00005efc        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-impure.o)
- .text          0x00005efc        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-malloc.o)
- .text.malloc   0x00005efc        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-malloc.o)
-                0x00005efc                malloc
- .text.free     0x00005f08        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-malloc.o)
-                0x00005f08                free
- .text          0x00005f14        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memcpy.o)
- .text.memcpy   0x00005f14       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memcpy.o)
-                0x00005f14                memcpy
- .text          0x00005f34        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memset.o)
- .text.memset   0x00005f34       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memset.o)
-                0x00005f34                memset
- .text          0x00005f4e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-freer.o)
- .text._free_r  0x00005f4e      0x134 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-freer.o)
-                0x00005f4e                _free_r
- .text          0x00006082        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-mallocr.o)
+ .text          0x0000483c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large/crt0.o
+ .text          0x0000483c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large/crtbegin_no_eh.o
+ .text          0x0000483c      0x34e ./AESoperations.o
+                0x0000483c                generateRandomKey
+                0x000048cc                encryptAndStoreInFRAM
+                0x000048f4                decryptAndStoreInSRAM
+                0x0000491c                AES256_decryptMatrix_ECB
+                0x0000498c                AES256_encryptMatrix_ECB
+ .text          0x00004b8a      0x13c ./alpaca.o
+                0x00004b8a                task_prologue
+                0x00004c24                transition_to
+                0x00004c5a                write_to_gbuf
+                0x00004c9e                main
+ .text          0x00004cc6      0x2ee ./main_secureML_alpaca.o
+                0x00004ce2                task_init
+                0x00004d7e                get_input_indeces
+                0x00004e0e                get_input_tile
+                0x00004ece                aggregate_results
+                0x00004ee0                _entry_task
+                0x00004eea                task_encrypt_I
+                0x00004f7c                task_decrypt_I_tile
+                0x00004f9a                clear_isDirty
+                0x00004f9c                init
+                0x00004fae                _init
+ .text          0x00004fb4      0x6e4 ./matrix_multiplication.o
+                0x00004fb4                Basic_Multiplication
+                0x00005044                Print_Matrix
+                0x0000509a                Initialiaze_Matrix
+                0x000050da                Matrix_Equality
+                0x00005122                Tiled_Multiplication
+                0x00005214                Tiled_Decryption_Multiplication
+ .text          0x00005698      0x558 ./rng.o
+                0x00005bd6                rng_generateBytes
+ .text          0x00005bf0       0x4c ./watchdog.o
+                0x00005bf0                msp_watchdog_enable
+                0x00005bfe                msp_watchdog_disable
+                0x00005c06                msp_watchdog_kick
+                0x00005c18                msp_watchdog_hold
+                0x00005c2a                msp_watchdog_release
+ .text          0x00005c3c      0x3bc ../driverlib_objs/aes256.o
+                0x00005c3c                AES256_setCipherKey
+                0x00005cb4                AES256_encryptData
+                0x00005d40                AES256_decryptData
+                0x00005dcc                AES256_setDecipherKey
+                0x00005e44                AES256_clearInterrupt
+                0x00005e4e                AES256_getInterruptStatus
+                0x00005e5c                AES256_enableInterrupt
+                0x00005e66                AES256_disableInterrupt
+                0x00005e70                AES256_reset
+                0x00005e7a                AES256_startEncryptData
+                0x00005ec8                AES256_startDecryptData
+                0x00005f16                AES256_startSetDecipherKey
+                0x00005f82                AES256_getDataOut
+                0x00005fd8                AES256_isBusy
+                0x00005fe2                AES256_clearErrorFlag
+                0x00005fec                AES256_getErrorFlagStatus
+ .text          0x00005ff8       0x68 ../driverlib_objs/wdt_a.o
+                0x00005ff8                WDT_A_hold
+                0x0000600e                WDT_A_start
+                0x00006020                WDT_A_resetTimer
+                0x00006034                WDT_A_initWatchdogTimer
+                0x0000604a                WDT_A_initIntervalTimer
+ .text          0x00006060       0x76 ./libPF/PF_sim.o
+                0x000060cc                PF_sim_start
+ .text          0x000060d6        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-impure.o)
+ .text          0x000060d6        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-malloc.o)
+ .text.malloc   0x000060d6        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-malloc.o)
+                0x000060d6                malloc
+ .text.free     0x000060e2        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-malloc.o)
+                0x000060e2                free
+ .text          0x000060ee        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memcpy.o)
+ .text.memcpy   0x000060ee       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memcpy.o)
+                0x000060ee                memcpy
+ .text          0x0000610e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memset.o)
+ .text.memset   0x0000610e       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memset.o)
+                0x0000610e                memset
+ .text          0x00006128        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-freer.o)
+ .text._free_r  0x00006128      0x134 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-freer.o)
+                0x00006128                _free_r
+ .text          0x0000625c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-mallocr.o)
  .text._malloc_r
-                0x00006082      0x12a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-mallocr.o)
-                0x00006082                _malloc_r
- .text          0x000061ac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-printf.o)
+                0x0000625c      0x12a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-mallocr.o)
+                0x0000625c                _malloc_r
+ .text          0x00006386        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-printf.o)
  .text._printf_r
-                0x000061ac       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-printf.o)
-                0x000061ac                _iprintf_r
-                0x000061ac                _printf_r
- .text.printf   0x000061d8       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-printf.o)
-                0x000061d8                iprintf
-                0x000061d8                printf
- .text          0x00006208        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putchar.o)
+                0x00006386       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-printf.o)
+                0x00006386                _iprintf_r
+                0x00006386                _printf_r
+ .text.printf   0x000063b2       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-printf.o)
+                0x000063b2                iprintf
+                0x000063b2                printf
+ .text          0x000063e2        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putchar.o)
  .text._putchar_r
-                0x00006208       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putchar.o)
-                0x00006208                _putchar_r
- .text.putchar  0x00006238       0x36 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putchar.o)
-                0x00006238                putchar
- .text          0x0000626e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putc.o)
- .text._putc_r  0x0000626e       0x8e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putc.o)
-                0x0000626e                _putc_r
- .text.putc     0x000062fc        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putc.o)
-                0x000062fc                putc
- .text          0x0000630a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
- .text._puts_r  0x0000630a       0xcc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
-                0x0000630a                _puts_r
- .text.puts     0x000063d6        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
-                0x000063d6                puts
- .text          0x000063e2        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-sbrkr.o)
- .text._sbrk_r  0x000063e2       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-sbrkr.o)
-                0x000063e2                _sbrk_r
- .text          0x00006406        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-setvbuf.o)
- .text.setvbuf  0x00006406      0x19a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-setvbuf.o)
-                0x00006406                setvbuf
- .text          0x000065a0        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strlen.o)
- .text.strlen   0x000065a0       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strlen.o)
-                0x000065a0                strlen
- .text          0x000065b8        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wbuf.o)
+                0x000063e2       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putchar.o)
+                0x000063e2                _putchar_r
+ .text.putchar  0x00006412       0x36 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putchar.o)
+                0x00006412                putchar
+ .text          0x00006448        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putc.o)
+ .text._putc_r  0x00006448       0x8e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putc.o)
+                0x00006448                _putc_r
+ .text.putc     0x000064d6        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-putc.o)
+                0x000064d6                putc
+ .text          0x000064e4        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
+ .text._puts_r  0x000064e4       0xcc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
+                0x000064e4                _puts_r
+ .text.puts     0x000065b0        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-puts.o)
+                0x000065b0                puts
+ .text          0x000065bc        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-sbrkr.o)
+ .text._sbrk_r  0x000065bc       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-sbrkr.o)
+                0x000065bc                _sbrk_r
+ .text          0x000065e0        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-setvbuf.o)
+ .text.setvbuf  0x000065e0      0x19a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-setvbuf.o)
+                0x000065e0                setvbuf
+ .text          0x0000677a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strlen.o)
+ .text.strlen   0x0000677a       0x18 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strlen.o)
+                0x0000677a                strlen
+ .text          0x00006792        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wbuf.o)
  .text.__swbuf_r
-                0x000065b8       0xdc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wbuf.o)
-                0x000065b8                __swbuf_r
- .text.__swbuf  0x00006694        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wbuf.o)
-                0x00006694                __swbuf
- .text          0x000066a2        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wsetup.o)
+                0x00006792       0xdc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wbuf.o)
+                0x00006792                __swbuf_r
+ .text.__swbuf  0x0000686e        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wbuf.o)
+                0x0000686e                __swbuf
+ .text          0x0000687c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wsetup.o)
  .text.__swsetup_r
-                0x000066a2      0x112 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wsetup.o)
-                0x000066a2                __swsetup_r
- .text          0x000067b4        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
+                0x0000687c      0x112 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wsetup.o)
+                0x0000687c                __swsetup_r
+ .text          0x0000698e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
  .text.__sflush_r
-                0x000067b4      0x1a6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
-                0x000067b4                __sflush_r
+                0x0000698e      0x1a6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
+                0x0000698e                __sflush_r
  .text._fflush_r
-                0x0000695a       0x60 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
-                0x0000695a                _fflush_r
- .text.fflush   0x000069ba       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
-                0x000069ba                fflush
- .text          0x000069dc        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006b34       0x60 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
+                0x00006b34                _fflush_r
+ .text.fflush   0x00006b94       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fflush.o)
+                0x00006b94                fflush
+ .text          0x00006bb6        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
  .text.__fp_lock
-                0x000069dc        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006bb6        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x000069e0        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x000069e0                _cleanup_r
+                0x00006bba        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006bba                _cleanup_r
  .text.std.isra.0
-                0x000069ea       0x62 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006bc4       0x62 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
  .text.__fp_unlock
-                0x00006a4c        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006c26        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
  .text.__sfmoreglue
-                0x00006a50       0x50 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006a50                __sfmoreglue
+                0x00006c2a       0x50 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006c2a                __sfmoreglue
  .text._cleanup
-                0x00006aa0        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006aa0                _cleanup
- .text.__sinit  0x00006aaa       0x7c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006aaa                __sinit
- .text.__sfp    0x00006b26       0xba c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006b26                __sfp
+                0x00006c7a        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006c7a                _cleanup
+ .text.__sinit  0x00006c84       0x7c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006c84                __sinit
+ .text.__sfp    0x00006d00       0xba c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006d00                __sfp
  .text.__sfp_lock_acquire
-                0x00006be0        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006be0                __sfp_lock_acquire
+                0x00006dba        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006dba                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x00006be2        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006be2                __sfp_lock_release
+                0x00006dbc        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006dbc                __sfp_lock_release
  .text.__sinit_lock_acquire
-                0x00006be4        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006be4                __sinit_lock_acquire
+                0x00006dbe        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006dbe                __sinit_lock_acquire
  .text.__sinit_lock_release
-                0x00006be6        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006be6                __sinit_lock_release
+                0x00006dc0        0x2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006dc0                __sinit_lock_release
  .text.__fp_lock_all
-                0x00006be8        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006be8                __fp_lock_all
+                0x00006dc2        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006dc2                __fp_lock_all
  .text.__fp_unlock_all
-                0x00006bf6        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
-                0x00006bf6                __fp_unlock_all
- .text          0x00006c04        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fvwrite.o)
+                0x00006dd0        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-findfp.o)
+                0x00006dd0                __fp_unlock_all
+ .text          0x00006dde        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fvwrite.o)
  .text.__sfvwrite_r
-                0x00006c04      0x3d8 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fvwrite.o)
-                0x00006c04                __sfvwrite_r
- .text          0x00006fdc        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fwalk.o)
- .text._fwalk   0x00006fdc       0x44 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fwalk.o)
-                0x00006fdc                _fwalk
+                0x00006dde      0x3d8 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fvwrite.o)
+                0x00006dde                __sfvwrite_r
+ .text          0x000071b6        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fwalk.o)
+ .text._fwalk   0x000071b6       0x44 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fwalk.o)
+                0x000071b6                _fwalk
  .text._fwalk_reent
-                0x00007020       0x4c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fwalk.o)
-                0x00007020                _fwalk_reent
- .text          0x0000706c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-makebuf.o)
+                0x000071fa       0x4c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fwalk.o)
+                0x000071fa                _fwalk_reent
+ .text          0x00007246        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-makebuf.o)
  .text.__swhatbuf_r
-                0x0000706c       0x82 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-makebuf.o)
-                0x0000706c                __swhatbuf_r
+                0x00007246       0x82 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-makebuf.o)
+                0x00007246                __swhatbuf_r
  .text.__smakebuf_r
-                0x000070ee       0x9e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-makebuf.o)
-                0x000070ee                __smakebuf_r
- .text          0x0000718c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memchr.o)
- .text.memchr   0x0000718c       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memchr.o)
-                0x0000718c                memchr
- .text          0x000071b0        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memmove.o)
- .text.memmove  0x000071b0       0x54 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memmove.o)
-                0x000071b0                memmove
- .text          0x00007204        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-reallocr.o)
+                0x000072c8       0x9e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-makebuf.o)
+                0x000072c8                __smakebuf_r
+ .text          0x00007366        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memchr.o)
+ .text.memchr   0x00007366       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memchr.o)
+                0x00007366                memchr
+ .text          0x0000738a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memmove.o)
+ .text.memmove  0x0000738a       0x54 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-memmove.o)
+                0x0000738a                memmove
+ .text          0x000073de        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-reallocr.o)
  .text._realloc_r
-                0x00007204       0x66 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-reallocr.o)
-                0x00007204                _realloc_r
- .text          0x0000726a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
+                0x000073de       0x66 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-reallocr.o)
+                0x000073de                _realloc_r
+ .text          0x00007444        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
  .text.__sfputc_r
-                0x0000726a       0x38 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
+                0x00007444       0x38 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x000072a2       0x5c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
-                0x000072a2                __sfputs_r
+                0x0000747c       0x5c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
+                0x0000747c                __sfputs_r
  .text.__sprint_r
-                0x000072fe       0x8a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
-                0x000072fe                __sprint_r
+                0x000074d8       0x8a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
+                0x000074d8                __sprint_r
  .text._vfprintf_r
-                0x00007388      0x2c2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
-                0x00007388                _vfprintf_r
-                0x00007388                _vfiprintf_r
+                0x00007562      0x2c2 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
+                0x00007562                _vfprintf_r
+                0x00007562                _vfiprintf_r
  .text.vfprintf
-                0x0000764a       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
-                0x0000764a                vfprintf
-                0x0000764a                vfiprintf
- .text          0x0000765a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-reent.o)
+                0x00007824       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf.o)
+                0x00007824                vfprintf
+                0x00007824                vfiprintf
+ .text          0x00007834        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-reent.o)
  .text.cleanup_glue
-                0x0000765a       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-reent.o)
-                0x0000765a                cleanup_glue
+                0x00007834       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-reent.o)
+                0x00007834                cleanup_glue
  .text._reclaim_reent
-                0x0000767c      0x130 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-reent.o)
-                0x0000767c                _reclaim_reent
- .text          0x000077ac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
- .text.__sread  0x000077ac       0x4a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
-                0x000077ac                __sread
+                0x00007856      0x130 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-reent.o)
+                0x00007856                _reclaim_reent
+ .text          0x00007986        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
+ .text.__sread  0x00007986       0x4a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
+                0x00007986                __sread
  .text.__seofread
-                0x000077f6        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
-                0x000077f6                __seofread
+                0x000079d0        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
+                0x000079d0                __seofread
  .text.__swrite
-                0x000077fa       0x4c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
-                0x000077fa                __swrite
- .text.__sseek  0x00007846       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
-                0x00007846                __sseek
+                0x000079d4       0x4c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
+                0x000079d4                __swrite
+ .text.__sseek  0x00007a20       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
+                0x00007a20                __sseek
  .text.__sclose
-                0x00007884        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
-                0x00007884                __sclose
- .text          0x0000788e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-writer.o)
+                0x00007a5e        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-stdio.o)
+                0x00007a5e                __sclose
+ .text          0x00007a68        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-writer.o)
  .text._write_r
-                0x0000788e       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-writer.o)
-                0x0000788e                _write_r
- .text          0x000078ba        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-closer.o)
+                0x00007a68       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-writer.o)
+                0x00007a68                _write_r
+ .text          0x00007a94        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-closer.o)
  .text._close_r
-                0x000078ba       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-closer.o)
-                0x000078ba                _close_r
- .text          0x000078dc        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fclose.o)
+                0x00007a94       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-closer.o)
+                0x00007a94                _close_r
+ .text          0x00007ab6        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fclose.o)
  .text._fclose_r
-                0x000078dc       0xd0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fclose.o)
-                0x000078dc                _fclose_r
- .text.fclose   0x000079ac        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fclose.o)
-                0x000079ac                fclose
- .text          0x000079b8        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
+                0x00007ab6       0xd0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fclose.o)
+                0x00007ab6                _fclose_r
+ .text.fclose   0x00007b86        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fclose.o)
+                0x00007b86                fclose
+ .text          0x00007b92        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
  .text.__fputwc
-                0x000079b8       0xbc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
-                0x000079b8                __fputwc
+                0x00007b92       0xbc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
+                0x00007b92                __fputwc
  .text._fputwc_r
-                0x00007a74       0x2e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
-                0x00007a74                _fputwc_r
- .text.fputwc   0x00007aa2       0x58 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
-                0x00007aa2                fputwc
- .text          0x00007afa        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fstatr.o)
+                0x00007c4e       0x2e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
+                0x00007c4e                _fputwc_r
+ .text.fputwc   0x00007c7c       0x58 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fputwc.o)
+                0x00007c7c                fputwc
+ .text          0x00007cd4        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fstatr.o)
  .text._fstat_r
-                0x00007afa       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fstatr.o)
-                0x00007afa                _fstat_r
- .text          0x00007b1e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-isattyr.o)
+                0x00007cd4       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-fstatr.o)
+                0x00007cd4                _fstat_r
+ .text          0x00007cf8        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-isattyr.o)
  .text._isatty_r
-                0x00007b1e       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-isattyr.o)
-                0x00007b1e                _isatty_r
- .text          0x00007b40        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007cf8       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-isattyr.o)
+                0x00007cf8                _isatty_r
+ .text          0x00007d1a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
  .text._setlocale_r
-                0x00007b40       0x44 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007b40                _setlocale_r
+                0x00007d1a       0x44 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d1a                _setlocale_r
  .text.__locale_charset
-                0x00007b84        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007b84                __locale_charset
+                0x00007d5e        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d5e                __locale_charset
  .text.__locale_mb_cur_max
-                0x00007b8a        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007b8a                __locale_mb_cur_max
+                0x00007d64        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d64                __locale_mb_cur_max
  .text.__locale_msgcharset
-                0x00007b90        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007b90                __locale_msgcharset
+                0x00007d6a        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d6a                __locale_msgcharset
  .text.__locale_cjk_lang
-                0x00007b96        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007b96                __locale_cjk_lang
+                0x00007d70        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d70                __locale_cjk_lang
  .text._localeconv_r
-                0x00007b9a        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007b9a                _localeconv_r
+                0x00007d74        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d74                _localeconv_r
  .text.setlocale
-                0x00007ba0        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007ba0                setlocale
+                0x00007d7a        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d7a                setlocale
  .text.localeconv
-                0x00007bae        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
-                0x00007bae                localeconv
- .text          0x00007bb4        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-lseekr.o)
+                0x00007d88        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-locale.o)
+                0x00007d88                localeconv
+ .text          0x00007d8e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-lseekr.o)
  .text._lseek_r
-                0x00007bb4       0x2e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-lseekr.o)
-                0x00007bb4                _lseek_r
- .text          0x00007be2        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-msizer.o)
+                0x00007d8e       0x2e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-lseekr.o)
+                0x00007d8e                _lseek_r
+ .text          0x00007dbc        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-msizer.o)
  .text._malloc_usable_size_r
-                0x00007be2       0x32 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-msizer.o)
-                0x00007be2                _malloc_usable_size_r
- .text          0x00007c14        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
+                0x00007dbc       0x32 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-msizer.o)
+                0x00007dbc                _malloc_usable_size_r
+ .text          0x00007dee        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
  .text._printf_common
-                0x00007c14      0x11c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
-                0x00007c14                _printf_common
+                0x00007dee      0x11c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
+                0x00007dee                _printf_common
  .text._printf_i
-                0x00007d30      0x37c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
-                0x00007d30                _printf_i
- .text          0x000080ac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-readr.o)
- .text._read_r  0x000080ac       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-readr.o)
-                0x000080ac                _read_r
- .text          0x000080d8        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strcmp.o)
- .text.strcmp   0x000080d8       0x14 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strcmp.o)
-                0x000080d8                strcmp
- .text          0x000080ec        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wcrtomb.o)
+                0x00007f0a      0x37c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-nano-vfprintf_i.o)
+                0x00007f0a                _printf_i
+ .text          0x00008286        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-readr.o)
+ .text._read_r  0x00008286       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-readr.o)
+                0x00008286                _read_r
+ .text          0x000082b2        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strcmp.o)
+ .text.strcmp   0x000082b2       0x14 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-strcmp.o)
+                0x000082b2                strcmp
+ .text          0x000082c6        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wcrtomb.o)
  .text._wcrtomb_r
-                0x000080ec       0x80 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wcrtomb.o)
-                0x000080ec                _wcrtomb_r
- .text.wcrtomb  0x0000816c       0x1c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wcrtomb.o)
-                0x0000816c                wcrtomb
- .text          0x00008188        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wctomb_r.o)
+                0x000082c6       0x80 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wcrtomb.o)
+                0x000082c6                _wcrtomb_r
+ .text.wcrtomb  0x00008346       0x1c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wcrtomb.o)
+                0x00008346                wcrtomb
+ .text          0x00008362        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wctomb_r.o)
  .text.__ascii_wctomb
-                0x00008188       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wctomb_r.o)
-                0x00008188                __ascii_wctomb
+                0x00008362       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wctomb_r.o)
+                0x00008362                __ascii_wctomb
  .text._wctomb_r
-                0x000081b8       0x3c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wctomb_r.o)
-                0x000081b8                _wctomb_r
- .text          0x000081f4        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
+                0x00008392       0x3c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-wctomb_r.o)
+                0x00008392                _wctomb_r
+ .text          0x000083ce        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
  .text.udivmodhi4
-                0x000081f4       0x3c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
-                0x000081f4                udivmodhi4
+                0x000083ce       0x3c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
+                0x000083ce                udivmodhi4
  .text.__divhi3
-                0x00008230       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
-                0x00008230                __mspabi_divi
+                0x0000840a       0x30 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
+                0x0000840a                __mspabi_divi
  .text.__modhi3
-                0x00008260       0x2e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
-                0x00008260                __mspabi_remi
+                0x0000843a       0x2e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
+                0x0000843a                __mspabi_remi
  .text.__udivhi3
-                0x0000828e        0x8 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
-                0x0000828e                __mspabi_divu
+                0x00008468        0x8 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
+                0x00008468                __mspabi_divu
  .text.__umodhi3
-                0x00008296        0x8 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
-                0x00008296                __mspabi_remu
- .text          0x0000829e        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
-                0x0000829e                __mspabi_divllu
+                0x00008470        0x8 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divHI.o)
+                0x00008470                __mspabi_remu
+ .text          0x00008478        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
+                0x00008478                __mspabi_divllu
  .text.udivmodsi4
-                0x000082a2       0x86 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
-                0x000082a2                udivmodsi4
+                0x0000847c       0x86 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
+                0x0000847c                udivmodsi4
  .text.__divsi3
-                0x00008328       0x4c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
-                0x00008328                __mspabi_divli
+                0x00008502       0x4c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
+                0x00008502                __mspabi_divli
  .text.__modsi3
-                0x00008374       0x5e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
-                0x00008374                __mspabi_remli
+                0x0000854e       0x5e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
+                0x0000854e                __mspabi_remli
  .text.__udivsi3
-                0x000083d2       0x12 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
-                0x000083d2                __mspabi_divlu
-                0x000083d2                __mspabi_divul
+                0x000085ac       0x12 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
+                0x000085ac                __mspabi_divlu
+                0x000085ac                __mspabi_divul
  .text.__umodsi3
-                0x000083e4       0x12 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
-                0x000083e4                __mspabi_remul
- .text          0x000083f6        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
+                0x000085be       0x12 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(lib2divSI.o)
+                0x000085be                __mspabi_remul
+ .text          0x000085d0        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
  .text.__mspabi_slli_n
-                0x000083f6       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
-                0x000083f6                __mspabi_slli_15
-                0x000083f8                __mspabi_slli_14
-                0x000083fa                __mspabi_slli_13
-                0x000083fc                __mspabi_slli_12
-                0x000083fe                __mspabi_slli_11
-                0x00008400                __mspabi_slli_10
-                0x00008402                __mspabi_slli_9
-                0x00008404                __mspabi_slli_8
-                0x00008406                __mspabi_slli_7
-                0x00008408                __mspabi_slli_6
-                0x0000840a                __mspabi_slli_5
-                0x0000840c                __mspabi_slli_4
-                0x0000840e                __mspabi_slli_3
-                0x00008410                __mspabi_slli_2
-                0x00008412                __mspabi_slli_1
+                0x000085d0       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
+                0x000085d0                __mspabi_slli_15
+                0x000085d2                __mspabi_slli_14
+                0x000085d4                __mspabi_slli_13
+                0x000085d6                __mspabi_slli_12
+                0x000085d8                __mspabi_slli_11
+                0x000085da                __mspabi_slli_10
+                0x000085dc                __mspabi_slli_9
+                0x000085de                __mspabi_slli_8
+                0x000085e0                __mspabi_slli_7
+                0x000085e2                __mspabi_slli_6
+                0x000085e4                __mspabi_slli_5
+                0x000085e6                __mspabi_slli_4
+                0x000085e8                __mspabi_slli_3
+                0x000085ea                __mspabi_slli_2
+                0x000085ec                __mspabi_slli_1
  .text.__mspabi_slli
-                0x00008416        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
-                0x0000841a                __mspabi_slli
+                0x000085f0        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
+                0x000085f4                __mspabi_slli
  .text.__gnu_mspabi_sllp
-                0x00008420        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
-                0x00008426                __gnu_mspabi_sllp
+                0x000085fa        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
+                0x00008600                __gnu_mspabi_sllp
  .text.__mspabi_slll_n
-                0x0000842c       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
-                0x0000842c                __mspabi_slll_15
-                0x00008430                __mspabi_slll_14
-                0x00008434                __mspabi_slll_13
-                0x00008438                __mspabi_slll_12
-                0x0000843c                __mspabi_slll_11
-                0x00008440                __mspabi_slll_10
-                0x00008444                __mspabi_slll_9
-                0x00008448                __mspabi_slll_8
-                0x0000844c                __mspabi_slll_7
-                0x00008450                __mspabi_slll_6
-                0x00008454                __mspabi_slll_5
-                0x00008458                __mspabi_slll_4
-                0x0000845c                __mspabi_slll_3
-                0x00008460                __mspabi_slll_2
-                0x00008464                __mspabi_slll_1
+                0x00008606       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
+                0x00008606                __mspabi_slll_15
+                0x0000860a                __mspabi_slll_14
+                0x0000860e                __mspabi_slll_13
+                0x00008612                __mspabi_slll_12
+                0x00008616                __mspabi_slll_11
+                0x0000861a                __mspabi_slll_10
+                0x0000861e                __mspabi_slll_9
+                0x00008622                __mspabi_slll_8
+                0x00008626                __mspabi_slll_7
+                0x0000862a                __mspabi_slll_6
+                0x0000862e                __mspabi_slll_5
+                0x00008632                __mspabi_slll_4
+                0x00008636                __mspabi_slll_3
+                0x0000863a                __mspabi_slll_2
+                0x0000863e                __mspabi_slll_1
  .text.__mspabi_slll
-                0x0000846a        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
-                0x00008470                __mspabi_slll
+                0x00008644        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
+                0x0000864a                __mspabi_slll
  .text.__mspabi_sllll
-                0x00008476       0x1e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
-                0x00008476                __mspabi_sllll
- .text          0x00008494        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
+                0x00008650       0x1e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(slli.o)
+                0x00008650                __mspabi_sllll
+ .text          0x0000866e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
  .text.__mspabi_srai_n
-                0x00008494       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
-                0x00008494                __mspabi_srai_15
-                0x00008496                __mspabi_srai_14
-                0x00008498                __mspabi_srai_13
-                0x0000849a                __mspabi_srai_12
-                0x0000849c                __mspabi_srai_11
-                0x0000849e                __mspabi_srai_10
-                0x000084a0                __mspabi_srai_9
-                0x000084a2                __mspabi_srai_8
-                0x000084a4                __mspabi_srai_7
-                0x000084a6                __mspabi_srai_6
-                0x000084a8                __mspabi_srai_5
-                0x000084aa                __mspabi_srai_4
-                0x000084ac                __mspabi_srai_3
-                0x000084ae                __mspabi_srai_2
-                0x000084b0                __mspabi_srai_1
+                0x0000866e       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
+                0x0000866e                __mspabi_srai_15
+                0x00008670                __mspabi_srai_14
+                0x00008672                __mspabi_srai_13
+                0x00008674                __mspabi_srai_12
+                0x00008676                __mspabi_srai_11
+                0x00008678                __mspabi_srai_10
+                0x0000867a                __mspabi_srai_9
+                0x0000867c                __mspabi_srai_8
+                0x0000867e                __mspabi_srai_7
+                0x00008680                __mspabi_srai_6
+                0x00008682                __mspabi_srai_5
+                0x00008684                __mspabi_srai_4
+                0x00008686                __mspabi_srai_3
+                0x00008688                __mspabi_srai_2
+                0x0000868a                __mspabi_srai_1
  .text.__mspabi_srai
-                0x000084b4        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
-                0x000084b8                __mspabi_srai
+                0x0000868e        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
+                0x00008692                __mspabi_srai
  .text.__gnu_mspabi_srap
-                0x000084be        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
-                0x000084c6                __gnu_mspabi_srap
+                0x00008698        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
+                0x000086a0                __gnu_mspabi_srap
  .text.__mspabi_sral_n
-                0x000084cc       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
-                0x000084cc                __mspabi_sral_15
-                0x000084d0                __mspabi_sral_14
-                0x000084d4                __mspabi_sral_13
-                0x000084d8                __mspabi_sral_12
-                0x000084dc                __mspabi_sral_11
-                0x000084e0                __mspabi_sral_10
-                0x000084e4                __mspabi_sral_9
-                0x000084e8                __mspabi_sral_8
-                0x000084ec                __mspabi_sral_7
-                0x000084f0                __mspabi_sral_6
-                0x000084f4                __mspabi_sral_5
-                0x000084f8                __mspabi_sral_4
-                0x000084fc                __mspabi_sral_3
-                0x00008500                __mspabi_sral_2
-                0x00008504                __mspabi_sral_1
+                0x000086a6       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
+                0x000086a6                __mspabi_sral_15
+                0x000086aa                __mspabi_sral_14
+                0x000086ae                __mspabi_sral_13
+                0x000086b2                __mspabi_sral_12
+                0x000086b6                __mspabi_sral_11
+                0x000086ba                __mspabi_sral_10
+                0x000086be                __mspabi_sral_9
+                0x000086c2                __mspabi_sral_8
+                0x000086c6                __mspabi_sral_7
+                0x000086ca                __mspabi_sral_6
+                0x000086ce                __mspabi_sral_5
+                0x000086d2                __mspabi_sral_4
+                0x000086d6                __mspabi_sral_3
+                0x000086da                __mspabi_sral_2
+                0x000086de                __mspabi_sral_1
  .text.__mspabi_sral
-                0x0000850a        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
-                0x00008510                __mspabi_sral
+                0x000086e4        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
+                0x000086ea                __mspabi_sral
  .text.__mspabi_srall
-                0x00008516       0x1e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
-                0x00008516                __mspabi_srall
- .text          0x00008534        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_udivdi3.o)
+                0x000086f0       0x1e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srai.o)
+                0x000086f0                __mspabi_srall
+ .text          0x0000870e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_udivdi3.o)
  .text.__udivdi3
-                0x00008534      0x3fe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_udivdi3.o)
-                0x00008534                __mspabi_divull
- .text          0x00008932        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
+                0x0000870e      0x3fe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_udivdi3.o)
+                0x0000870e                __mspabi_divull
+ .text          0x00008b0c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
  .text.__mspabi_srli_n
-                0x00008932       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
-                0x00008932                __mspabi_srli_15
-                0x00008936                __mspabi_srli_14
-                0x0000893a                __mspabi_srli_13
-                0x0000893e                __mspabi_srli_12
-                0x00008942                __mspabi_srli_11
-                0x00008946                __mspabi_srli_10
-                0x0000894a                __mspabi_srli_9
-                0x0000894e                __mspabi_srli_8
-                0x00008952                __mspabi_srli_7
-                0x00008956                __mspabi_srli_6
-                0x0000895a                __mspabi_srli_5
-                0x0000895e                __mspabi_srli_4
-                0x00008962                __mspabi_srli_3
-                0x00008966                __mspabi_srli_2
-                0x0000896a                __mspabi_srli_1
+                0x00008b0c       0x3e c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
+                0x00008b0c                __mspabi_srli_15
+                0x00008b10                __mspabi_srli_14
+                0x00008b14                __mspabi_srli_13
+                0x00008b18                __mspabi_srli_12
+                0x00008b1c                __mspabi_srli_11
+                0x00008b20                __mspabi_srli_10
+                0x00008b24                __mspabi_srli_9
+                0x00008b28                __mspabi_srli_8
+                0x00008b2c                __mspabi_srli_7
+                0x00008b30                __mspabi_srli_6
+                0x00008b34                __mspabi_srli_5
+                0x00008b38                __mspabi_srli_4
+                0x00008b3c                __mspabi_srli_3
+                0x00008b40                __mspabi_srli_2
+                0x00008b44                __mspabi_srli_1
  .text.__mspabi_srli
-                0x00008970        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
-                0x00008976                __mspabi_srli
+                0x00008b4a        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
+                0x00008b50                __mspabi_srli
  .text.__gnu_mspabi_srlp
-                0x0000897c       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
-                0x00008986                __gnu_mspabi_srlp
+                0x00008b56       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
+                0x00008b60                __gnu_mspabi_srlp
  .text.__mspabi_srll_n
-                0x0000898c       0x5c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
-                0x0000898c                __mspabi_srll_15
-                0x00008992                __mspabi_srll_14
-                0x00008998                __mspabi_srll_13
-                0x0000899e                __mspabi_srll_12
-                0x000089a4                __mspabi_srll_11
-                0x000089aa                __mspabi_srll_10
-                0x000089b0                __mspabi_srll_9
-                0x000089b6                __mspabi_srll_8
-                0x000089bc                __mspabi_srll_7
-                0x000089c2                __mspabi_srll_6
-                0x000089c8                __mspabi_srll_5
-                0x000089ce                __mspabi_srll_4
-                0x000089d4                __mspabi_srll_3
-                0x000089da                __mspabi_srll_2
-                0x000089e0                __mspabi_srll_1
+                0x00008b66       0x5c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
+                0x00008b66                __mspabi_srll_15
+                0x00008b6c                __mspabi_srll_14
+                0x00008b72                __mspabi_srll_13
+                0x00008b78                __mspabi_srll_12
+                0x00008b7e                __mspabi_srll_11
+                0x00008b84                __mspabi_srll_10
+                0x00008b8a                __mspabi_srll_9
+                0x00008b90                __mspabi_srll_8
+                0x00008b96                __mspabi_srll_7
+                0x00008b9c                __mspabi_srll_6
+                0x00008ba2                __mspabi_srll_5
+                0x00008ba8                __mspabi_srll_4
+                0x00008bae                __mspabi_srll_3
+                0x00008bb4                __mspabi_srll_2
+                0x00008bba                __mspabi_srll_1
  .text.__mspabi_srll
-                0x000089e8        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
-                0x000089f0                __mspabi_srll
+                0x00008bc2        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
+                0x00008bca                __mspabi_srll
  .text.__mspabi_srlll
-                0x000089f6       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
-                0x000089f6                __mspabi_srlll
- .text          0x00008a16        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clzdi2.o)
+                0x00008bd0       0x20 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(srli.o)
+                0x00008bd0                __mspabi_srlll
+ .text          0x00008bf0        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clzdi2.o)
  .text.__clzdi2
-                0x00008a16       0x74 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clzdi2.o)
-                0x00008a16                __clzdi2
- .text          0x00008a8a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clz.o)
- .text          0x00008a8a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008bf0       0x74 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clzdi2.o)
+                0x00008bf0                __clzdi2
+ .text          0x00008c64        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libgcc.a(_clz.o)
+ .text          0x00008c64        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
  .text.__mulhi2
-                0x00008a8a       0x16 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                0x00008a8a                __mspabi_mpyi_f5hw
-                0x00008a8a                __mspabi_mpyi
-                0x00008a8a                __mulhi2
+                0x00008c64       0x16 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008c64                __mspabi_mpyi_f5hw
+                0x00008c64                __mspabi_mpyi
+                0x00008c64                __mulhi2
  .text.__mulhisi2
-                0x00008aa0       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                0x00008aa0                __mspabi_mpysl
-                0x00008aa0                __mspabi_mpysl_f5hw
-                0x00008aa0                __mulhisi2
+                0x00008c7a       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008c7a                __mspabi_mpysl
+                0x00008c7a                __mspabi_mpysl_f5hw
+                0x00008c7a                __mulhisi2
  .text.__umulhisi2
-                0x00008aba       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                0x00008aba                __mspabi_mpyul_f5hw
-                0x00008aba                __mspabi_mpyul
-                0x00008aba                __umulhisi2
+                0x00008c94       0x1a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008c94                __mspabi_mpyul_f5hw
+                0x00008c94                __mspabi_mpyul
+                0x00008c94                __umulhisi2
  .text.__mulsi2
-                0x00008ad4       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                0x00008ad4                __mspabi_mpyl_f5hw
-                0x00008ad4                __mulsi2
-                0x00008ad4                __mspabi_mpyl
+                0x00008cae       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008cae                __mspabi_mpyl_f5hw
+                0x00008cae                __mulsi2
+                0x00008cae                __mspabi_mpyl
  .text.__mulsidi2
-                0x00008af6       0x2a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                0x00008af6                __mulsidi2
-                0x00008af6                __mspabi_mpysll
-                0x00008af6                __mspabi_mpysll_f5hw
+                0x00008cd0       0x2a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008cd0                __mulsidi2
+                0x00008cd0                __mspabi_mpysll
+                0x00008cd0                __mspabi_mpysll_f5hw
  .text.__umulsidi2
-                0x00008b20       0x2a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                0x00008b20                __mspabi_mpyull_f5hw
-                0x00008b20                __mspabi_mpyull
-                0x00008b20                __umulsidi2
+                0x00008cfa       0x2a c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008cfa                __mspabi_mpyull_f5hw
+                0x00008cfa                __mspabi_mpyull
+                0x00008cfa                __umulsidi2
  .text.__muldi3
-                0x00008b4a       0x62 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
-                0x00008b4a                __mspabi_mpyll_f5hw
-                0x00008b4a                __muldi3
-                0x00008b4a                __mspabi_mpyll
- .text          0x00008bac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_bss.o)
- .text          0x00008bac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_movedata.o)
- .text          0x00008bac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_main.o)
- .text          0x00008bac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_callexit.o)
- .text          0x00008bac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
- .text.isatty   0x00008bac        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008bac                _isatty
-                0x00008bac                isatty
- .text.getpid   0x00008bb0        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008bb0                getpid
- .text.open     0x00008bb6       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008bb6                open
- .text.close    0x00008bc6       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008bc6                close
- .text.read     0x00008bd6       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008bd6                read
- .text.fstat    0x00008be6       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008be6                fstat
- .text.lseek    0x00008bf6       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008bf6                lseek
- .text.kill     0x00008c06       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
-                0x00008c06                kill
- .text          0x00008c16        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
- .text.write    0x00008c16       0x74 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
-                0x00008c16                write
- .text          0x00008c8a        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
- .text.exit     0x00008c8a        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
-                0x00008c8a                _exit
-                0x00008c8a                exit
- .text          0x00008c8e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
- .text._sbrk    0x00008c8e       0x38 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
-                0x00008c8e                sbrk
-                0x00008c8e                _sbrk
- .text          0x00008cc6        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
-                0x00008cc6                _libgloss_cio_hook
-                0x00008cc6                C$$IO$$
- .text          0x00008cca        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-abort.o)
- .text.abort    0x00008cca        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-abort.o)
-                0x00008cca                abort
- .text          0x00008cd8        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-errno.o)
- .text.__errno  0x00008cd8        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-errno.o)
-                0x00008cd8                __errno
- .text          0x00008cde        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00008d24       0x62 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large\libmul_f5.a(lib2hw_mul_f5.o)
+                0x00008d24                __mspabi_mpyll_f5hw
+                0x00008d24                __muldi3
+                0x00008d24                __mspabi_mpyll
+ .text          0x00008d86        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_bss.o)
+ .text          0x00008d86        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_movedata.o)
+ .text          0x00008d86        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_main.o)
+ .text          0x00008d86        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libcrt.a(crt_callexit.o)
+ .text          0x00008d86        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+ .text.isatty   0x00008d86        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008d86                _isatty
+                0x00008d86                isatty
+ .text.getpid   0x00008d8a        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008d8a                getpid
+ .text.open     0x00008d90       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008d90                open
+ .text.close    0x00008da0       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008da0                close
+ .text.read     0x00008db0       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008db0                read
+ .text.fstat    0x00008dc0       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008dc0                fstat
+ .text.lseek    0x00008dd0       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008dd0                lseek
+ .text.kill     0x00008de0       0x10 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00008de0                kill
+ .text          0x00008df0        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+ .text.write    0x00008df0       0x74 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+                0x00008df0                write
+ .text          0x00008e64        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+ .text.exit     0x00008e64        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+                0x00008e64                _exit
+                0x00008e64                exit
+ .text          0x00008e68        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+ .text._sbrk    0x00008e68       0x38 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+                0x00008e68                sbrk
+                0x00008e68                _sbrk
+ .text          0x00008ea0        0x4 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
+                0x00008ea0                _libgloss_cio_hook
+                0x00008ea0                C$$IO$$
+ .text          0x00008ea4        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-abort.o)
+ .text.abort    0x00008ea4        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-abort.o)
+                0x00008ea4                abort
+ .text          0x00008eb2        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-errno.o)
+ .text.__errno  0x00008eb2        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-errno.o)
+                0x00008eb2                __errno
+ .text          0x00008eb8        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
  .text._init_signal_r
-                0x00008cde       0x3c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008cde                _init_signal_r
+                0x00008eb8       0x3c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00008eb8                _init_signal_r
  .text._signal_r
-                0x00008d1a       0x50 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008d1a                _signal_r
+                0x00008ef4       0x50 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00008ef4                _signal_r
  .text._raise_r
-                0x00008d6a       0x74 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008d6a                _raise_r
+                0x00008f44       0x74 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00008f44                _raise_r
  .text.__sigtramp_r
-                0x00008dde       0x64 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008dde                __sigtramp_r
- .text.raise    0x00008e42        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008e42                raise
- .text.signal   0x00008e4e        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008e4e                signal
+                0x00008fb8       0x64 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00008fb8                __sigtramp_r
+ .text.raise    0x0000901c        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x0000901c                raise
+ .text.signal   0x00009028        0xe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00009028                signal
  .text._init_signal
-                0x00008e5c        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008e5c                _init_signal
+                0x00009036        0xa c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00009036                _init_signal
  .text.__sigtramp
-                0x00008e66        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
-                0x00008e66                __sigtramp
- .text          0x00008e72        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signalr.o)
- .text._kill_r  0x00008e72       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signalr.o)
-                0x00008e72                _kill_r
+                0x00009040        0xc c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signal.o)
+                0x00009040                __sigtramp
+ .text          0x0000904c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signalr.o)
+ .text._kill_r  0x0000904c       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signalr.o)
+                0x0000904c                _kill_r
  .text._getpid_r
-                0x00008e96        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signalr.o)
-                0x00008e96                _getpid_r
- .text          0x00008e9c        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large/crtend_no_eh.o
+                0x00009070        0x6 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libc.a(lib_a-signalr.o)
+                0x00009070                _getpid_r
+ .text          0x00009076        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/large/crtend_no_eh.o
  *(.text.*personality*)
  *(.gnu.warning)
  *(.interp .hash .dynsym .dynstr .gnu.version*)
                 [!provide]                PROVIDE (__etext = .)
                 [!provide]                PROVIDE (_etext = .)
                 [!provide]                PROVIDE (etext = .)
-                0x00008e9c                . = ALIGN (0x2)
+                0x00009076                . = ALIGN (0x2)
  *(.init)
  *(.fini)
  *(.tm_clone_table)
@@ -1809,146 +1826,146 @@ __reset_vector  0x0000fffe        0x2
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x364a6
+.debug_info     0x00000000    0x36697
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x639d ./AESoperations.o
  .debug_info    0x0000639d     0x633c ./alpaca.o
- .debug_info    0x0000c6d9     0x645b ./main_secureML_alpaca.o
- .debug_info    0x00012b34     0x656f ./matrix_multiplication.o
- .debug_info    0x000190a3     0x5b22 ./rng.o
- .debug_info    0x0001ebc5     0x57a8 ./watchdog.o
- .debug_info    0x0002436d     0x5bdf ../driverlib_objs/aes256.o
- .debug_info    0x00029f4c     0x587a ../driverlib_objs/wdt_a.o
- .debug_info    0x0002f7c6     0x6063 ./libPF/PF_sim.o
- .debug_info    0x00035829       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
- .debug_info    0x0003584b      0xabe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
- .debug_info    0x00036309       0x4f c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
- .debug_info    0x00036358      0x128 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
- .debug_info    0x00036480       0x26 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
+ .debug_info    0x0000c6d9     0x664c ./main_secureML_alpaca.o
+ .debug_info    0x00012d25     0x656f ./matrix_multiplication.o
+ .debug_info    0x00019294     0x5b22 ./rng.o
+ .debug_info    0x0001edb6     0x57a8 ./watchdog.o
+ .debug_info    0x0002455e     0x5bdf ../driverlib_objs/aes256.o
+ .debug_info    0x0002a13d     0x587a ../driverlib_objs/wdt_a.o
+ .debug_info    0x0002f9b7     0x6063 ./libPF/PF_sim.o
+ .debug_info    0x00035a1a       0x22 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+ .debug_info    0x00035a3c      0xabe c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+ .debug_info    0x000364fa       0x4f c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+ .debug_info    0x00036549      0x128 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+ .debug_info    0x00036671       0x26 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
 
-.debug_abbrev   0x00000000     0x14a8
+.debug_abbrev   0x00000000     0x14b9
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x266 ./AESoperations.o
  .debug_abbrev  0x00000266      0x230 ./alpaca.o
- .debug_abbrev  0x00000496      0x21b ./main_secureML_alpaca.o
- .debug_abbrev  0x000006b1      0x275 ./matrix_multiplication.o
- .debug_abbrev  0x00000926      0x266 ./rng.o
- .debug_abbrev  0x00000b8c       0xb6 ./watchdog.o
- .debug_abbrev  0x00000c42      0x1b0 ../driverlib_objs/aes256.o
- .debug_abbrev  0x00000df2       0xeb ../driverlib_objs/wdt_a.o
- .debug_abbrev  0x00000edd      0x1da ./libPF/PF_sim.o
- .debug_abbrev  0x000010b7       0x12 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
- .debug_abbrev  0x000010c9      0x264 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
- .debug_abbrev  0x0000132d       0x4f c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
- .debug_abbrev  0x0000137c      0x118 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
- .debug_abbrev  0x00001494       0x14 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
+ .debug_abbrev  0x00000496      0x22c ./main_secureML_alpaca.o
+ .debug_abbrev  0x000006c2      0x275 ./matrix_multiplication.o
+ .debug_abbrev  0x00000937      0x266 ./rng.o
+ .debug_abbrev  0x00000b9d       0xb6 ./watchdog.o
+ .debug_abbrev  0x00000c53      0x1b0 ../driverlib_objs/aes256.o
+ .debug_abbrev  0x00000e03       0xeb ../driverlib_objs/wdt_a.o
+ .debug_abbrev  0x00000eee      0x1da ./libPF/PF_sim.o
+ .debug_abbrev  0x000010c8       0x12 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+ .debug_abbrev  0x000010da      0x264 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+ .debug_abbrev  0x0000133e       0x4f c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+ .debug_abbrev  0x0000138d      0x118 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+ .debug_abbrev  0x000014a5       0x14 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
 
-.debug_line     0x00000000     0x3d9b
+.debug_line     0x00000000     0x3e5d
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x61d ./AESoperations.o
  .debug_line    0x0000061d      0x3dd ./alpaca.o
- .debug_line    0x000009fa      0x520 ./main_secureML_alpaca.o
- .debug_line    0x00000f1a      0xbef ./matrix_multiplication.o
- .debug_line    0x00001b09      0xcdc ./rng.o
- .debug_line    0x000027e5      0x1a4 ./watchdog.o
- .debug_line    0x00002989      0x9fa ../driverlib_objs/aes256.o
- .debug_line    0x00003383      0x1f9 ../driverlib_objs/wdt_a.o
- .debug_line    0x0000357c      0x30c ./libPF/PF_sim.o
- .debug_line    0x00003888       0x54 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+ .debug_line    0x000009fa      0x5e2 ./main_secureML_alpaca.o
+ .debug_line    0x00000fdc      0xbef ./matrix_multiplication.o
+ .debug_line    0x00001bcb      0xcdc ./rng.o
+ .debug_line    0x000028a7      0x1a4 ./watchdog.o
+ .debug_line    0x00002a4b      0x9fa ../driverlib_objs/aes256.o
+ .debug_line    0x00003445      0x1f9 ../driverlib_objs/wdt_a.o
+ .debug_line    0x0000363e      0x30c ./libPF/PF_sim.o
+ .debug_line    0x0000394a       0x54 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.isatty
-                0x000038dc       0x16 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x0000399e       0x16 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.getpid
-                0x000038f2       0x16 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x000039b4       0x16 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.open
-                0x00003908       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x000039ca       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.close
-                0x00003919       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x000039db       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.read
-                0x0000392a       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x000039ec       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.fstat
-                0x0000393b       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x000039fd       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.lseek
-                0x0000394c       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00003a0e       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line.text.kill
-                0x0000395d       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+                0x00003a1f       0x11 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
  .debug_line_end
-                0x0000396e        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
- .debug_line    0x0000396e      0x13c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+                0x00003a30        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+ .debug_line    0x00003a30      0x13c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
  .debug_line.text.write
-                0x00003aaa      0x140 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+                0x00003b6c      0x140 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
  .debug_line_end
-                0x00003bea        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
- .debug_line    0x00003bea       0x4d c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+                0x00003cac        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+ .debug_line    0x00003cac       0x4d c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
  .debug_line.text.exit
-                0x00003c37       0x34 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+                0x00003cf9       0x34 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
  .debug_line_end
-                0x00003c6b        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
- .debug_line    0x00003c6b       0x4d c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+                0x00003d2d        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+ .debug_line    0x00003d2d       0x4d c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
  .debug_line.text._sbrk
-                0x00003cb8       0x81 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+                0x00003d7a       0x81 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
  .debug_line_end
-                0x00003d39        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
- .debug_line    0x00003d39       0x62 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
+                0x00003dfb        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+ .debug_line    0x00003dfb       0x62 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
  .debug_line_end
-                0x00003d9b        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
+                0x00003e5d        0x0 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
 
-.debug_frame    0x00000000      0xb20
+.debug_frame    0x00000000      0xb70
  *(.debug_frame)
  .debug_frame   0x00000000      0x168 ./AESoperations.o
  .debug_frame   0x00000168       0x98 ./alpaca.o
- .debug_frame   0x00000200       0xfc ./main_secureML_alpaca.o
- .debug_frame   0x000002fc      0x1c8 ./matrix_multiplication.o
- .debug_frame   0x000004c4      0x1c0 ./rng.o
- .debug_frame   0x00000684       0x64 ./watchdog.o
- .debug_frame   0x000006e8      0x28c ../driverlib_objs/aes256.o
- .debug_frame   0x00000974       0x64 ../driverlib_objs/wdt_a.o
- .debug_frame   0x000009d8       0x8c ./libPF/PF_sim.o
- .debug_frame   0x00000a64       0x64 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
- .debug_frame   0x00000ac8       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
- .debug_frame   0x00000aec       0x34 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+ .debug_frame   0x00000200      0x14c ./main_secureML_alpaca.o
+ .debug_frame   0x0000034c      0x1c8 ./matrix_multiplication.o
+ .debug_frame   0x00000514      0x1c0 ./rng.o
+ .debug_frame   0x000006d4       0x64 ./watchdog.o
+ .debug_frame   0x00000738      0x28c ../driverlib_objs/aes256.o
+ .debug_frame   0x000009c4       0x64 ../driverlib_objs/wdt_a.o
+ .debug_frame   0x00000a28       0x8c ./libPF/PF_sim.o
+ .debug_frame   0x00000ab4       0x64 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+ .debug_frame   0x00000b18       0x24 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+ .debug_frame   0x00000b3c       0x34 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
 
-.debug_str      0x00000000     0x48c1
+.debug_str      0x00000000     0x4994
  *(.debug_str)
- .debug_str     0x00000000     0x3eb5 ./AESoperations.o
-                               0x3f45 (size before relaxing)
- .debug_str     0x00003eb5      0x14c ./alpaca.o
+ .debug_str     0x00000000     0x3e93 ./AESoperations.o
+                               0x3f23 (size before relaxing)
+ .debug_str     0x00003e93      0x14c ./alpaca.o
                                0x3f02 (size before relaxing)
- .debug_str     0x00004001       0xad ./main_secureML_alpaca.o
-                               0x3f87 (size before relaxing)
- .debug_str     0x000040ae      0x18c ./matrix_multiplication.o
+ .debug_str     0x00003fdf      0x1e8 ./main_secureML_alpaca.o
+                               0x414f (size before relaxing)
+ .debug_str     0x000041c7      0x146 ./matrix_multiplication.o
                                0x3f9b (size before relaxing)
- .debug_str     0x0000423a      0x144 ./rng.o
+ .debug_str     0x0000430d      0x144 ./rng.o
                                0x3ac7 (size before relaxing)
- .debug_str     0x0000437e       0x75 ./watchdog.o
+ .debug_str     0x00004451       0x75 ./watchdog.o
                                0x39c2 (size before relaxing)
- .debug_str     0x000043f3      0x1d0 ../driverlib_objs/aes256.o
+ .debug_str     0x000044c6      0x1d0 ../driverlib_objs/aes256.o
                                0x3b48 (size before relaxing)
- .debug_str     0x000045c3       0x89 ../driverlib_objs/wdt_a.o
+ .debug_str     0x00004696       0x89 ../driverlib_objs/wdt_a.o
                                0x39f9 (size before relaxing)
- .debug_str     0x0000464c       0x4f ./libPF/PF_sim.o
+ .debug_str     0x0000471f       0x4f ./libPF/PF_sim.o
                                0x3db7 (size before relaxing)
- .debug_str     0x0000469b       0xa7 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
- .debug_str     0x00004742       0xdb c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+ .debug_str     0x0000476e       0xa7 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(ciosyscalls.o)
+ .debug_str     0x00004815       0xdb c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
                                 0x5a9 (size before relaxing)
- .debug_str     0x0000481d       0x34 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
+ .debug_str     0x000048f0       0x34 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(exit.o)
                                  0x94 (size before relaxing)
- .debug_str     0x00004851       0x44 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+ .debug_str     0x00004924       0x44 c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
                                  0xaa (size before relaxing)
- .debug_str     0x00004895       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
+ .debug_str     0x00004968       0x2c c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(cio.o)
                                  0x9f (size before relaxing)
 
-.debug_loc      0x00000000     0x1361
+.debug_loc      0x00000000     0x1397
  *(.debug_loc)
  .debug_loc     0x00000000      0x303 ./AESoperations.o
  .debug_loc     0x00000303       0x96 ./alpaca.o
- .debug_loc     0x00000399       0x31 ./main_secureML_alpaca.o
- .debug_loc     0x000003ca      0x559 ./matrix_multiplication.o
- .debug_loc     0x00000923      0x4a2 ./rng.o
- .debug_loc     0x00000dc5       0x13 ./watchdog.o
- .debug_loc     0x00000dd8      0x3ad ../driverlib_objs/aes256.o
- .debug_loc     0x00001185       0x72 ../driverlib_objs/wdt_a.o
- .debug_loc     0x000011f7       0xfb c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
- .debug_loc     0x000012f2       0x6f c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
+ .debug_loc     0x00000399       0x67 ./main_secureML_alpaca.o
+ .debug_loc     0x00000400      0x559 ./matrix_multiplication.o
+ .debug_loc     0x00000959      0x4a2 ./rng.o
+ .debug_loc     0x00000dfb       0x13 ./watchdog.o
+ .debug_loc     0x00000e0e      0x3ad ../driverlib_objs/aes256.o
+ .debug_loc     0x000011bb       0x72 ../driverlib_objs/wdt_a.o
+ .debug_loc     0x0000122d       0xfb c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(write.o)
+ .debug_loc     0x00001328       0x6f c:/ti/msp430-gcc/bin/../lib/gcc/msp430-elf/9.3.1/../../../../msp430-elf/lib/large\libnosys.a(sbrk.o)
 
 .debug_macinfo
  *(.debug_macinfo)

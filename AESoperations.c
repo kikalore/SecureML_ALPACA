@@ -1,7 +1,7 @@
 #include "driverlib.h"
 #include "AESoperations.h"
 
-extern uint8_t cipherkey[];
+extern uint8_t cipherKey[];
 
 void generateRandomKey(uint16_t *cipherKey)
 {
@@ -31,11 +31,11 @@ void generateRandomKey(uint16_t *cipherKey)
 }
 
 void encryptAndStoreInFRAM(const uint8_t *matrix,
-                           uint8_t *encryptedMatrixFRAMFRAM,
+                           uint8_t *encryptedMatrixFRAM,
                            uint16_t *cipherKey)
 {
     AES256_setCipherKey(AES256_BASE, cipherKey, AES256_KEYLENGTH_128BIT);
-    AES256_encryptData(AES256_BASE, matrix, encryptedMatrixFRAMFRAM);
+    AES256_encryptData(AES256_BASE, matrix, encryptedMatrixFRAM);
 }
 
 void decryptAndStoreInSRAM(const uint8_t *encryptedMatrixFRAM,
@@ -78,7 +78,7 @@ void AES256_decryptMatrix_ECB(uint8_t *encryptedMatrixFRAM,
         }
 
         // Decrypt the block
-        decryptAndStoreInSRAM(block, decryptedBlock, cipherkey);
+        decryptAndStoreInSRAM(block, decryptedBlock, cipherKey);
         // printf("Decrypted block:\t");
         // for (j = 0; j < BLOCK_SIZE; j++)
         // {
@@ -140,7 +140,7 @@ encryptedMatrix AES256_encryptMatrix_ECB(uint8_t *matrix,
                 }
             }
             // Process the block-> encrypt it
-            encryptAndStoreInFRAM(block, encryptedBlock, cipherkey);
+            encryptAndStoreInFRAM(block, encryptedBlock, cipherKey);
             //copy block into encrypted matrix
             for (blockRow = 0; blockRow < BLOCK_ROWS; ++blockRow)
             {
@@ -173,8 +173,5 @@ encryptedMatrix AES256_encryptMatrix_ECB(uint8_t *matrix,
             // printf("\n");
         }
     }
-    // printf("Encrypted matrix:\n");
-    // Print_Matrix(encryptedMatrix.matrix, encryptedMatrix.matrixRows,
-    //              encryptedMatrix.matrixCols);
     return encryptedMatrix;
 }

@@ -9,7 +9,7 @@
 #define BLOCK_COLS 4
 #define ROUND_UP_TO_MULTIPLE_OF_4(x) ((x) + ((x) % 4 ? (4 - (x) % 4) : 0))
 
-#define LENGTH 16 // Length of random data to generate, multiple of RNG_KEYLEN
+#define LENGTH 32 // Length of random data to generate, multiple of RNG_KEYLEN
 typedef struct
 {
     uint8_t *matrix;

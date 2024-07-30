@@ -131,11 +131,8 @@ encryptedMatrix Tiled_Decryption_Multiplication(encryptedMatrix I_encrypted, enc
                     }
                 }
             }
-
-
             AES256_decryptMatrix_ECB(I_encrypted_tile, I_decrypted_tile,
                                      BLOCK_SIZE, BLOCK_SIZE);
-
 
             //DECRYPT W TILE
             for (w_row = 0; w_row < W_encrypted.matrixRows; w_row += BLOCK_ROWS) {
