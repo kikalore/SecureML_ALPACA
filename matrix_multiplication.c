@@ -109,14 +109,12 @@ encryptedMatrix Tiled_Decryption_Multiplication(encryptedMatrix I_encrypted, enc
 
     memset(O, 0, I_encrypted.matrixRows * W_encrypted.matrixCols * sizeof(uint8_t));
 
-    // Always cycle over matrices that have rows and columns multiple of BLOCK_ROWS and BLOCK_COLS, so no paddiing is needed
+
+    //DECRYPT I TILE
     for ( row = 0; row < I_encrypted.matrixRows; row += BLOCK_ROWS)
     {
         for ( col = 0; col < I_encrypted.matrixCols; col += BLOCK_COLS)
         {
-            // printf("Start index of tile of INPUT matrix is: (%d, %d)\n", row,
-            //        col);
-
             // Copy current I_tile into I_encrypted_tile and decrypt it
             for (blockRow = 0; blockRow < BLOCK_ROWS; ++blockRow)
             {
@@ -134,13 +132,12 @@ encryptedMatrix Tiled_Decryption_Multiplication(encryptedMatrix I_encrypted, enc
                 }
             }
 
-            // printf("Encrypted tile I:\n");
-            // Print_Matrix(I_encrypted_tile, BLOCK_ROWS, BLOCK_COLS);
+
             AES256_decryptMatrix_ECB(I_encrypted_tile, I_decrypted_tile,
                                      BLOCK_SIZE, BLOCK_SIZE);
-            // printf("Decrypted tile I:\n");
-            // Print_Matrix(I_decrypted_tile, BLOCK_ROWS, BLOCK_COLS);
 
+
+            //DECRYPT W TILE
             for (w_row = 0; w_row < W_encrypted.matrixRows; w_row += BLOCK_ROWS) {
                 for (w_col = 0; w_col < W_encrypted.matrixCols; w_col += BLOCK_COLS) {
                     memset(OTile, 0, sizeof(OTile));
@@ -157,11 +154,7 @@ encryptedMatrix Tiled_Decryption_Multiplication(encryptedMatrix I_encrypted, enc
                             }
                         }
                     }
-                    //printf("Encrypted tile W:\n");
-                    //Print_Matrix(W_encrypted_tile, BLOCK_ROWS, BLOCK_COLS);
                     AES256_decryptMatrix_ECB(W_encrypted_tile, W_decrypted_tile, BLOCK_SIZE, sizeof(W_decrypted_tile));
-                    // printf("Decrypted tile W:\n");
-                    // Print_Matrix(W_decrypted_tile, BLOCK_ROWS, BLOCK_COLS);
 
 
                     // Perform multiplication and store result in OTile
@@ -172,6 +165,7 @@ encryptedMatrix Tiled_Decryption_Multiplication(encryptedMatrix I_encrypted, enc
                             }
                         }
                     }
+
                     // Accumulate OTile into the output matrix O
                     for (i = 0; i < BLOCK_ROWS; ++i) {
                         for (j = 0; j < BLOCK_COLS; ++j) {
@@ -183,6 +177,7 @@ encryptedMatrix Tiled_Decryption_Multiplication(encryptedMatrix I_encrypted, enc
                         }
                     }
                 }
+
                  // Save the output row into FRAM when it's ready. 
                 for (i = 0; i < BLOCK_ROWS; ++i)
                 {

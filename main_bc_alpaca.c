@@ -8,6 +8,8 @@
 #define SEED 4L
 #define ITER 100
 #define CHAR_BIT 8
+#define LIBIO_BACKEND_HWUART
+
 
 __nv static char bits[256] =
 {
@@ -75,13 +77,11 @@ unsigned overflow=0;
 
 static void init_hw()
 {
-
-
 	msp_watchdog_disable();
-	PM5CTL0 &= ~LOCKLPM5; // Disable the GPIO power-on default high-impedance mode
-	P3DIR ^= 0xFF;
-	  P3OUT ^=0x04;
-	  P3OUT ^=0x04;
+	// PM5CTL0 &= ~LOCKLPM5; // Disable the GPIO power-on default high-impedance mode
+	// P3DIR ^= 0xFF;
+	//   P3OUT ^=0x04;
+	//   P3OUT ^=0x04;
 	//msp_gpio_unlock();
 	//msp_clock_setup();
 }

@@ -11,8 +11,8 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./AESoperations.o" \
-"./accel.o" \
-"./main.o" \
+"./alpaca.o" \
+"./main_secureML_alpaca.o" \
 "./matrix_multiplication.o" \
 "./rng.o" \
 "./watchdog.o" \
@@ -149,15 +149,15 @@ all: $(OBJS) $(LD_SRCS) $(GEN_CMDS)
 SECUREML_ALPACA.out: $(OBJS) $(LD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: GNU Linker'
-	"C:/ti/msp430-gcc/bin/msp430-elf-gcc-9.3.1.exe" -mhwmult=f5series -Og -g -gdwarf-3 -gstrict-dwarf -Wall -mcode-region=none -mlarge -Wl,-Map,"SECUREML_ALPACA.map" -Wl,--gc-sections -L"C:/ti/ccs1250/ccs/ccs_base/msp430/include_gcc" -L"C:/ti/msp/MSP430Ware_3_80_14_01/driverlib/driverlib/MSP430FR5xx_6xx" -L"C:/Users/User/workspace_v12/alpaca/alpaca/driverlib_objs" -mmcu=msp430fr5994 -o"SECUREML_ALPACA.out" $(ORDERED_OBJS)
+	"C:/ti/msp430-gcc/bin/msp430-elf-gcc-9.3.1.exe" -mhwmult=f5series -Og -g -gdwarf-3 -gstrict-dwarf -Wall -mcode-region=none -mlarge -Wl,-Map,"SECUREML_ALPACA.map" -L"C:/ti/ccs1250/ccs/ccs_base/msp430/include_gcc" -L"C:/ti/msp/MSP430Ware_3_80_14_01/driverlib/driverlib/MSP430FR5xx_6xx" -L"C:/Users/User/workspace_v12/alpaca/alpaca/driverlib_objs" -mmcu=msp430fr5994 -o"SECUREML_ALPACA.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "AESoperations.o" "accel.o" "main.o" "matrix_multiplication.o" "rng.o" "watchdog.o" "libPF\PF_sim.o" 
-	-$(RM) "AESoperations.d" "accel.d" "main.d" "matrix_multiplication.d" "rng.d" "watchdog.d" "libPF\PF_sim.d" 
+	-$(RM) "AESoperations.o" "alpaca.o" "main_secureML_alpaca.o" "matrix_multiplication.o" "rng.o" "watchdog.o" "libPF\PF_sim.o" 
+	-$(RM) "AESoperations.d" "alpaca.d" "main_secureML_alpaca.d" "matrix_multiplication.d" "rng.d" "watchdog.d" "libPF\PF_sim.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
