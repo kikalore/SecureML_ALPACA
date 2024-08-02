@@ -138,10 +138,8 @@ encryptedMatrix Tiled_Decryption_Multiplication(encryptedMatrix I_encrypted, enc
             for (w_row = 0; w_row < W_encrypted.matrixRows; w_row += BLOCK_ROWS) {
                 for (w_col = 0; w_col < W_encrypted.matrixCols; w_col += BLOCK_COLS) {
                     memset(OTile, 0, sizeof(OTile));
-                    //printf("Start index of tile of WEIGHT matrix is: (%d, %d)\n", w_row, w_col);
-
                     // Copy current tile into W_encrypted_tile
-                    memset(W_encrypted_tile, 0, sizeof(W_encrypted_tile));
+                    // memset(W_encrypted_tile, 0, sizeof(W_encrypted_tile));
                     for (blockRow = 0; blockRow < BLOCK_ROWS; ++blockRow) {
                         for (blockCol = 0; blockCol < BLOCK_COLS; ++blockCol) {
                             size_t sourceRow = w_row + blockRow;

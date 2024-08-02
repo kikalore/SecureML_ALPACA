@@ -52,15 +52,6 @@ void AES256_decryptMatrix_ECB(uint8_t *encryptedMatrixFRAM,
     size_t i, j;
     uint8_t block[BLOCK_SIZE];
     uint8_t decryptedBlock[BLOCK_SIZE];
-    size_t paddedEncryptedSize = encryptedSize;
-
-    //print tile to decrypt
-    // printf("Encrypted input:\t");
-    // for (i = 0; i < encryptedSize; i++)
-    // {
-    //     printf("%d ", encryptedMatrixFRAM[i]);
-    // }
-    // printf("\n");
 
     // Iterate over the encrypted matrix in 16-byte blocks
     for (i = 0; i < encryptedSize; i += BLOCK_SIZE)
@@ -69,24 +60,9 @@ void AES256_decryptMatrix_ECB(uint8_t *encryptedMatrixFRAM,
         if (i + BLOCK_SIZE <= encryptedSize)
         {
             memcpy(block, encryptedMatrixFRAM + i, BLOCK_SIZE);
-            // printf("Block to decrypt:\t");
-            // for (j = 0; j < BLOCK_SIZE; j++)
-            // {
-            //     printf("%d ", block[j]);
-            // }
-            // printf("\n");
         }
-
         // Decrypt the block
         decryptAndStoreInSRAM(block, decryptedBlock, cipherKey);
-        // printf("Decrypted block:\t");
-        // for (j = 0; j < BLOCK_SIZE; j++)
-        // {
-        //     printf("%d ", decryptedBlock[j]);
-        // }
-        // printf("\n");
-        // Copy the decrypted block into the decrypted matrix
-        // Be careful to not overwrite the buffer if it's not a multiple of 16
         size_t copySize =
                 (i + BLOCK_SIZE > matrixSize) ? matrixSize - i : BLOCK_SIZE;
         memcpy(decryptedMatrixSRAM + i, decryptedBlock, copySize);
@@ -153,24 +129,6 @@ encryptedMatrix AES256_encryptMatrix_ECB(uint8_t *matrix,
                             + blockCol];
                 }
             }
-            // Print the block
-            // printf("Block starting at (%d, %d):\n", row, col);
-            // for (blockRow = 0; blockRow < BLOCK_ROWS; ++blockRow)
-            // {
-            //     for (blockCol = 0; blockCol < BLOCK_COLS; ++blockCol)
-            //     {
-            //         printf("%d ", block[blockRow * BLOCK_COLS + blockCol]);
-            //     }
-            //     //print encrypted block
-            //     printf("\t\t");
-            //     for (blockCol = 0; blockCol < BLOCK_COLS; ++blockCol)
-            //     {
-            //         printf("%d ",
-            //                encryptedBlock[blockRow * BLOCK_COLS + blockCol]);
-            //     }
-            //     printf("\n");
-            // }
-            // printf("\n");
         }
     }
     return encryptedMatrix;
