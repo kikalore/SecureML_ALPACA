@@ -56,6 +56,9 @@ static void Timer_A0_set()
     _BIS_SR(GIE); //ENABLE GLOBAL INTERRRUPTS
 
 }
+static void Timer_B0_set(){
+    TB0CTL = TASSEL_2 + MC_2 + TBCLR;  // SMCLK, modalità  contatore continuo, azzera il timer
+}
 void PF_sim_start()
 {
 //    P3DIR ^= 0xFF;
