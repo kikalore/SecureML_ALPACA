@@ -1,7 +1,7 @@
 #include "driverlib.h"
 #include "AESoperations.h"
 
-extern uint8_t cipherKey[];
+extern uint16_t cipherKey[];
 
 void generateRandomKey(uint16_t *cipherKey)
 {
@@ -19,7 +19,7 @@ void generateRandomKey(uint16_t *cipherKey)
     }
     else
     {
-        printf("Key of %d bytes generated successfully\n", len);
+        //printf("Key of %d bytes generated successfully\n", len);
         printf("Generated key is: ");
         int i;
         for (i = 0; i < LENGTH; ++i)
@@ -77,7 +77,7 @@ encryptedMatrix AES256_encryptMatrix_ECB(uint8_t *matrix,
     encryptedMatrix.matrixRows = ROUND_UP_TO_MULTIPLE_OF_4(matrixRows);
     encryptedMatrix.matrixCols = ROUND_UP_TO_MULTIPLE_OF_4(matrixCols);
     encryptedMatrix.encryptedSize = encryptedMatrix.matrixRows * encryptedMatrix.matrixCols;
-    printf("Encrypted matrix size: %d\n", encryptedMatrix.encryptedSize);
+    //printf("Encrypted matrix size: %d\n", encryptedMatrix.encryptedSize);
     encryptedMatrix.matrix = (uint8_t*) malloc(
             encryptedMatrix.matrixRows * encryptedMatrix.matrixCols);
     if (encryptedMatrix.matrix == NULL)

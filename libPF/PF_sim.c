@@ -13,14 +13,14 @@
  */
 #define min_pf 10
 
-__fram int timer_count = 65000;
+__fram int timer_count = 50000;
 __fram unsigned int count = 0;
 //__fram unsigned int volatile random_num;  //read temperature value
 //__fram int mod5_rand;
 
 static void Reset()
 {
-    PMMCTL0 = PMMPW | PMMSWBOR; //PMMCTL0 =  0x0008; //Power-On Reset(POR)
+    PMMCTL0 =  0x0008; //Power-On Reset(POR)
 }
 
 static void rtc_init()

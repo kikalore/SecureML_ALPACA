@@ -13,15 +13,17 @@
 // Global variables (task-shared)
 GLOBAL_SB2(uint8_t, I[I_R*I_C]);
 GLOBAL_SB2(uint8_t, W[I_C*W_C]);
-GLOBAL_SB2(uint8_t, O[I_R*W_C]);
+GLOBAL_SB2(uint8_t,
+           O[ROUND_UP_TO_MULTIPLE_OF_4(I_R)*ROUND_UP_TO_MULTIPLE_OF_4(W_C)]);
 GLOBAL_SB2(encryptedMatrix, I_encrypted_ECB);
 GLOBAL_SB2(encryptedMatrix, W_encrypted_ECB);
+GLOBAL_SB2(encryptedMatrix, O_encrypted_ECB);
 GLOBAL_SB2(uint8_t, I_encrypted_tile[TILE_SIZE]);
 GLOBAL_SB2(uint8_t, I_decrypted_tile[TILE_SIZE]);
 GLOBAL_SB2(uint8_t, W_encrypted_tile[TILE_SIZE]);
 GLOBAL_SB2(uint8_t, W_decrypted_tile[TILE_SIZE]);
-GLOBAL_SB2(uint8_t, OTile[TILE_SIZE])= {0};
-GLOBAL_SB2(encryptedMatrix, O_encrypted);
+GLOBAL_SB2(uint8_t, OTile[TILE_SIZE]) =
+{   0};
 GLOBAL_SB2(uint8_t, row);
 GLOBAL_SB2(uint8_t, col);
 GLOBAL_SB2(uint8_t, blockRowI);
@@ -31,8 +33,13 @@ GLOBAL_SB2(uint8_t, blockColW);
 GLOBAL_SB2(uint8_t, w_row);
 GLOBAL_SB2(uint8_t, w_col);
 GLOBAL_SB2(uint8_t, output_row[ROUND_UP_TO_MULTIPLE_OF_4(W_C)]);
+GLOBAL_SB2(uint8_t, index) = 0;
+
 //define cipherKey of 32 bits
-__nv uint16_t cipherKey[LENGTH]={0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF};
+__nv uint16_t cipherKey[LENGTH] = { 0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8,
+                                    0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x0, 0x1,
+                                    0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xA,
+                                    0xB, 0xC, 0xD, 0xE, 0xF };
 __nv uint8_t execution_counter = 0;
 int i, j, k;
 
@@ -58,6 +65,7 @@ void task_decrypt_W_tile();
 void task_multiplicate_tile();
 void task_accumulate_result();
 void task_getOuputRow();
+void task_encryptOutput();
 void task_end();
 
 //Defintion of tasks' order
@@ -71,7 +79,8 @@ TASK(7, task_decrypt_W_tile)
 TASK(8, task_multiplicate_tile)
 TASK(9, task_accumulate_result)
 TASK(10, task_getOuputRow)
-TASK(11, task_end)
+TASK(11, task_encryptOutput)
+TASK(12, task_end)
 
 static void init_hw()
 {
@@ -89,6 +98,7 @@ void init()
     init_hw();
     PF_sim_start();
     printf("Init function successful\n");
+
 }
 
 // Initialization Task-> executed ONLY when the device boots for the first time (ENTRY_TASK)
@@ -102,7 +112,10 @@ void task_init()
     Initialiaze_Matrix(GV(W), I_C, W_C);
 
     // Set matrix O to zero
-    memset(GV(O), 0, sizeof(GV(O)));   
+    memset(GV(O),
+           0,
+           GV(I_encrypted_ECB.matrixRows) * GV(W_encrypted_ECB.matrixCols)
+                   * sizeof(uint8_t));
 
     // Initialize indices
     GV(row) = 0;
@@ -121,29 +134,34 @@ void task_init()
 void task_encrypt_I()
 {
     printf("Executing encrypt_I task\n");
-    GV(I_encrypted_ECB) = AES256_encryptMatrix_ECB(GV(I), GV(I_encrypted_ECB.matrix), I_R, I_C);
+    GV(I_encrypted_ECB) = AES256_encryptMatrix_ECB(
+            GV(I), GV(I_encrypted_ECB.matrix), I_R, I_C);
     TRANSITION_TO(task_encrypt_W);
 }
 //Encrypt Weight matrix
 void task_encrypt_W()
 {
     printf("Executing encrypt_W task\n");
-    GV(W_encrypted_ECB) = AES256_encryptMatrix_ECB(GV(W), GV(W_encrypted_ECB.matrix), I_C, W_C);
+    GV(W_encrypted_ECB) = AES256_encryptMatrix_ECB(
+            GV(W), GV(W_encrypted_ECB.matrix), I_C, W_C);
     TRANSITION_TO(task_getTileI);
 }
 
 // Extract input encrypted tile
-void task_getTileI(){
-    printf("Executing task_getTileI\n");
-    size_t sourceRow = GV(row) + GV(blockRowI);
-    size_t sourceCol = GV(col) + GV(blockColI);
-    if (sourceRow < GV(I_encrypted_ECB.matrixRows) && sourceCol < GV(I_encrypted_ECB.matrixCols))
+void task_getTileI()
+{
+    //printf("Executing task_getTileI\n");
+    int sourceRow = GV(row) + GV(blockRowI);
+    int sourceCol = GV(col) + GV(blockColI);
+    if (sourceRow < GV(I_encrypted_ECB.matrixRows)
+            && sourceCol < GV(I_encrypted_ECB.matrixCols))
     {
-        GV(I_encrypted_tile[GV(blockRowI) * BLOCK_COLS + GV(blockColI)]) = GV(I_encrypted_ECB.matrix[sourceRow * GV(I_encrypted_ECB.matrixCols) + sourceCol]);        
+        GV(I_encrypted_tile[GV(blockRowI) * BLOCK_COLS + GV(blockColI)])= GV(I_encrypted_ECB.matrix[sourceRow * GV(I_encrypted_ECB.matrixCols) + sourceCol]);
     }
 
     //update blockColI and blockRowI indeces
     GV(blockColI)++;
+    //printf("blockColI: %d\n", GV(blockColI));
     if (GV(blockColI) >= BLOCK_COLS)
     {
         GV(blockColI) = 0;
@@ -161,21 +179,23 @@ void task_getTileI(){
 //Decrypt Input tile
 void task_decrypt_I_tile()
 {
-    printf("Executing task_decrypt_I_tile\n");
-    AES256_decryptMatrix_ECB(GV(I_encrypted_tile), GV(I_decrypted_tile), BLOCK_SIZE,
+    //printf("Executing task_decrypt_I_tile\n");
+    AES256_decryptMatrix_ECB(GV(I_encrypted_tile), GV(I_decrypted_tile),
+    BLOCK_SIZE,
                              sizeof(GV(I_decrypted_tile)));
-    printf("Decrypted matrix I:\n");
-    Print_Matrix(GV(I_decrypted_tile), BLOCK_ROWS, BLOCK_COLS);
-
+    // printf("Decrypted matrix I:\n");
+    // Print_Matrix(GV(I_decrypted_tile), BLOCK_ROWS, BLOCK_COLS);
     TRANSITION_TO(task_getTileW);
 }
 void task_getTileW()
 {
-    printf("Executing task_getTileW\n");
-    size_t sourceRow = GV(w_row) + GV(blockRowW);
-    size_t sourceCol = GV(w_col) + GV(blockColW);
-    if (sourceRow < GV(W_encrypted_ECB.matrixRows) && sourceCol < GV(W_encrypted_ECB.matrixCols)) {
-        GV(W_encrypted_tile[GV(blockRowW) * BLOCK_COLS + GV(blockColW)]) = GV(W_encrypted_ECB.matrix[sourceRow * GV(W_encrypted_ECB.matrixCols) + sourceCol]);
+    //printf("Executing task_getTileW\n");
+    int sourceRow = GV(w_row) + GV(blockRowW);
+    int sourceCol = GV(w_col) + GV(blockColW);
+    if (sourceRow < GV(W_encrypted_ECB.matrixRows)
+            && sourceCol < GV(W_encrypted_ECB.matrixCols))
+    {
+        GV(W_encrypted_tile[GV(blockRowW) * BLOCK_COLS + GV(blockColW)])= GV(W_encrypted_ECB.matrix[sourceRow * GV(W_encrypted_ECB.matrixCols) + sourceCol]);
     }
 
     //update blockColW and blockRowW indeces
@@ -194,25 +214,38 @@ void task_getTileW()
     }
     TRANSITION_TO(task_getTileW);
 }
-void task_decrypt_W_tile(){
-    printf("Executing task_decrypt_W_tile\n");
-    AES256_decryptMatrix_ECB(GV(W_encrypted_tile), GV(W_decrypted_tile), BLOCK_SIZE,
+void task_decrypt_W_tile()
+{
+    //printf("Executing task_decrypt_W_tile\n");
+    AES256_decryptMatrix_ECB(GV(W_encrypted_tile), GV(W_decrypted_tile),
+    BLOCK_SIZE,
                              sizeof(GV(W_decrypted_tile)));
-    printf("Decrypted matrix W:\n");
-    Print_Matrix(GV(W_decrypted_tile), BLOCK_ROWS, BLOCK_COLS);
+    // printf("Decrypted matrix W:\n");
+    // Print_Matrix(GV(W_decrypted_tile), BLOCK_ROWS, BLOCK_COLS);
     TRANSITION_TO(task_multiplicate_tile);
 }
 void task_multiplicate_tile()
 {
     printf("Executing task_multiplicate_tile\n");
+    memset(GV(OTile), 0, sizeof(GV(OTile)));
+    // printf("I_decrypted_tile:\n");
+    // Print_Matrix(GV(I_decrypted_tile), BLOCK_ROWS, BLOCK_COLS);
+    // printf("W_decrypted_tile:\n");
+    // Print_Matrix(GV(W_decrypted_tile), BLOCK_ROWS, BLOCK_COLS);
+
     // Perform multiplication and store result in OTile
-    for (i = 0; i < BLOCK_ROWS; ++i) {
-        for (j = 0; j < BLOCK_COLS; ++j) {
-            for (k = 0; k < BLOCK_COLS; ++k) {
-                GV(OTile[i * BLOCK_COLS + j]) += GV(I_decrypted_tile[i * BLOCK_COLS + k]) * GV(W_decrypted_tile[k * BLOCK_COLS + j]);
+    for (i = 0; i < BLOCK_ROWS; ++i)
+    {
+        for (j = 0; j < BLOCK_COLS; ++j)
+        {
+            for (k = 0; k < BLOCK_COLS; ++k)
+            {
+                GV(OTile[i * BLOCK_COLS + j])+= GV(I_decrypted_tile[i * BLOCK_COLS + k]) * GV(W_decrypted_tile[k * BLOCK_COLS + j]);
             }
         }
     }
+    // printf("OTile:\n");
+    // Print_Matrix(GV(OTile), BLOCK_ROWS, BLOCK_COLS);
     TRANSITION_TO(task_accumulate_result);
 }
 void task_accumulate_result()
@@ -223,14 +256,19 @@ void task_accumulate_result()
     {
         for (j = 0; j < BLOCK_COLS; ++j)
         {
-            size_t outputRow = GV(row) + i;
-            size_t outputCol = GV(w_col) + j;
-            if (outputRow < GV(I_encrypted_ECB.matrixRows && outputCol < GV(W_encrypted_ECB.matrixCols)))
+            int outputRow = GV(row) + i;
+            int outputCol = GV(w_col) + j;
+            if (outputRow
+                    < GV(I_encrypted_ECB.matrixRows && outputCol < GV(W_encrypted_ECB.matrixCols)))
             {
-                GV(O[outputRow * GV(W_encrypted_ECB.matrixCols) + outputCol]) += GV(OTile[i * BLOCK_COLS + j]);
+                //set corresponding area of O to zero
+                GV(O[outputRow * GV(W_encrypted_ECB.matrixCols) + outputCol])= 0;
+                GV(O[outputRow * GV(W_encrypted_ECB.matrixCols) + outputCol])+= GV(OTile[i * BLOCK_COLS + j]);
             }
         }
     }
+    // printf("Output matrix is:\n");
+    // Print_Matrix(GV(O), GV(I_encrypted_ECB.matrixRows), GV(W_encrypted_ECB.matrixCols));
     //update  w_col indeces
     GV(w_col) += BLOCK_COLS;
     if (GV(w_col) >= GV(W_encrypted_ECB.matrixCols))
@@ -243,48 +281,58 @@ void task_accumulate_result()
 void task_getOuputRow()
 {
     printf("Executing task_save_output_row\n");
-    for (i = 0; i < BLOCK_ROWS; ++i)
+    int outputrow = GV(row) + GV(index);
+    //printf("outputrow: %d, GV(row): %d, GV(index): %d\n", outputrow, GV(row), GV(index));
+
+    if (outputrow < GV(I_encrypted_ECB.matrixRows))
     {
-        size_t outputRow = GV(row) + i;
-        if (outputRow < GV(I_encrypted_ECB.matrixRows))
-        {
-            memcpy(GV(output_row), &GV(O[outputRow * GV(W_encrypted_ECB.matrixCols)]), GV(W_encrypted_ECB.matrixCols * sizeof(uint8_t)));
-            printf("Output row %d: ", outputRow);
-            for (j = 0; j < GV(W_encrypted_ECB.matrixCols); ++j)
-            {
-                printf("%d ", GV(output_row[j]));
-            }
-            printf("\n");
-        }
+        memcpy(GV(output_row),
+               &GV(O[outputrow * GV(W_encrypted_ECB.matrixCols)]),
+               GV(W_encrypted_ECB.matrixCols * sizeof(uint8_t)));
     }
-    GV(w_row) += BLOCK_ROWS;
-    if (GV(w_row) >= GV(W_encrypted_ECB.matrixRows))
+    GV(index)++;
+    if (GV(index) >= BLOCK_ROWS)
     {
-        GV(w_row) = 0;
-        //update col and row indeces
-        GV(col) += BLOCK_COLS;
-        if (GV(col) >= GV(I_encrypted_ECB.matrixCols))
+        GV(index) = 0;
+        GV(w_row) += BLOCK_ROWS;
+        if (GV(w_row) >= GV(W_encrypted_ECB.matrixRows))
         {
-            GV(col) = 0;
-            GV(row) += BLOCK_ROWS;
-            if (GV(row) >= GV(I_encrypted_ECB.matrixRows))
+            GV(w_row) = 0;
+            //update col and row indeces
+            GV(col) += BLOCK_COLS;
+            if (GV(col) >= GV(I_encrypted_ECB.matrixCols))
             {
-                // All tiles processed, transition to the aggregation task
-                TRANSITION_TO(task_end);
+                GV(col) = 0;
+                GV(row) += BLOCK_ROWS;
+                if (GV(row) >= GV(I_encrypted_ECB.matrixRows))
+                {
+                    //all lines saved
+                    TRANSITION_TO(task_encryptOutput);
+                }
             }
+            TRANSITION_TO(task_getTileI);
         }
-        // All tiles processed, transition to the aggregation task
-        TRANSITION_TO(task_getTileI);
+        TRANSITION_TO(task_getTileW);
     }
-    TRANSITION_TO(task_getTileW);
+    TRANSITION_TO(task_getOuputRow);
+}
+
+void task_encryptOutput()
+{
+    printf("Executing encrypt_Output task\n");
+    printf("Plaintext output matrix is:\n");
+    Print_Matrix(GV(O), GV(I_encrypted_ECB.matrixRows),
+                 GV(W_encrypted_ECB.matrixCols));
+    GV(O_encrypted_ECB) = AES256_encryptMatrix_ECB(
+            GV(O), GV(O_encrypted_ECB.matrix), GV(I_encrypted_ECB.matrixRows),
+            GV(W_encrypted_ECB.matrixCols));
+    TRANSITION_TO(task_end);
 }
 
 // End Task
 void task_end()
 {
     printf("Executing end task\n");
-    printf("Output matrix is:\n");
-    Print_Matrix(GV(O), GV(I_encrypted_ECB.matrixRows), GV(W_encrypted_ECB.matrixCols));
     TRANSITION_TO(task_init);
 }
 

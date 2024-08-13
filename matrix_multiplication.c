@@ -4,7 +4,7 @@
 #include "matrix_multiplication.h"
 #include "AESoperations.h"
 
-extern uint8_t cipherkey[];
+extern uint16_t cipherkey[];
 
 void Basic_Multiplication(uint8_t I[I_R][I_C], uint8_t W[I_C][W_C],
                           uint8_t O[I_R][W_C])
