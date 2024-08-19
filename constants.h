@@ -1,8 +1,8 @@
 #ifndef CONSTANTS_H__
 #define CONSTANTS_H__
-#define I_R 5
-#define I_C 4
-#define W_C 6
+#define I_R 28
+#define I_C 28
+#define W_C 5
 #define BLOCK_SIZE 16
 #define TILE_SIZE 16
 #define BLOCK_ROWS 4

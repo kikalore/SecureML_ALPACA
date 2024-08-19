@@ -46,6 +46,9 @@ __nv context_t *volatile curctx = &context_0;
  */
 __nv volatile unsigned _numBoots = 0;
 
+__nv unsigned int overflow_counter=0;
+
+
 /**
  * @brief Function to be invoked at the beginning of every task
  */
@@ -121,10 +124,40 @@ void write_to_gbuf(uint8_t *data_src, uint8_t *data_dest, size_t var_size)
     num_dirty_gv++;
 }
 
+//Setup Timer to measure execution time
+//void setup_timerB()
+//{
+//    //setup ports->P1.0 to an output
+//    // P1DIR |= BIT0;
+//    // P1OUT &= ~BIT0;
+//    //PM5CTL0 &= ~LOCKLPM5;        // Already done in init_hw()
+//
+//    //setup timer
+//    TB0CTL |= TBCLR;               // Reset timer
+//    TB0CTL |= TBSSEL__ACLK;        // Clock source ACLK
+//    //TB0CTL |= MC__CONTINUOUS;    // Continuous mode
+//    TB0CTL |= MC__UP;              // Up mode, count to TB0CCR0
+//    TB0CCR0 = 1638;                // Set timer period for 0.05 seconds
+//
+//    //TB0CTL |= TBIE;              // Setup TB0 overflow IRQ
+//    TB0CCTL0 |= CCIE;              // Enable interrupt for CCR0
+//    //__enable_interrupt();
+//    TB0CTL &= ~TBIFG;
+//}
+//
+//// Interrupt service routine for Timer B CCR0
+//#pragma vector = TIMER0_B0_VECTOR
+//__interrupt void ISR_TB0_CCR0(void)
+//{
+//    //P1OUT ^= BIT0;                 // Toggle LED
+//    overflow_counter++;            // Increment overflow counter
+//}
+
 /** @brief Entry point upon reboot */
 int main()
 {
     setvbuf(stdout, NULL, _IONBF, 0);
+    _BIS_SR(GIE);
     init();
 
     // check for update

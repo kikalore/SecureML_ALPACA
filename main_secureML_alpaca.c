@@ -9,7 +9,7 @@
 #include "matrix_multiplication.h"
 #include "AESoperations.h"
 #include "constants.h"
-
+extern int overflow_counter;
 // Global variables (task-shared)
 GLOBAL_SB2(uint8_t, I[I_R*I_C]);
 GLOBAL_SB2(uint8_t, W[I_C*W_C]);
@@ -59,7 +59,6 @@ void task_encrypt_I();
 void task_encrypt_W();
 void task_getTileI();
 void task_getTileW();
-// void task_start_tile_extraction();
 void task_decrypt_I_tile();
 void task_decrypt_W_tile();
 void task_multiplicate_tile();
@@ -86,10 +85,8 @@ static void init_hw()
 {
     WDT_A_hold(WDT_A_BASE);
     __enable_interrupt();
+    __bis_SR_register(GIE);     // Enable global interrupts
     PM5CTL0 &= ~LOCKLPM5; // Disable the GPIO power-on default high-impedance mode
-    P1DIR |= BIT0;             // Set P1.0 to output direction
-    P1OUT |= BIT0;             // Set the LED on initially
-
 }
 
 // INIT FUNCTION->executes first on EVERY reboot, to reinitialize hw and interrupt handlers
@@ -97,15 +94,16 @@ void init()
 {
     init_hw();
     PF_sim_start();
-    printf("Init function successful\n");
-
+//    printf("Start time: %d\n", start_time);
+//    printf("Init function successful\n");
 }
 
 // Initialization Task-> executed ONLY when the device boots for the first time (ENTRY_TASK)
 void task_init()
 {
-    printf("Executing entry task\n");
-
+//    printf("Executing entry task\n");
+    TA0R = 0;
+    overflow_counter=0;
     // Initialize matrices I, W, and O
     Initialiaze_Matrix(GV(I), I_R, I_C);
 
@@ -133,7 +131,7 @@ void task_init()
 //Encrypt Input matrix
 void task_encrypt_I()
 {
-    printf("Executing encrypt_I task\n");
+//    printf("Executing encrypt_I task\n");
     GV(I_encrypted_ECB) = AES256_encryptMatrix_ECB(
             GV(I), GV(I_encrypted_ECB.matrix), I_R, I_C);
     TRANSITION_TO(task_encrypt_W);
@@ -141,7 +139,7 @@ void task_encrypt_I()
 //Encrypt Weight matrix
 void task_encrypt_W()
 {
-    printf("Executing encrypt_W task\n");
+//    printf("Executing encrypt_W task\n");
     GV(W_encrypted_ECB) = AES256_encryptMatrix_ECB(
             GV(W), GV(W_encrypted_ECB.matrix), I_C, W_C);
     TRANSITION_TO(task_getTileI);
@@ -226,7 +224,7 @@ void task_decrypt_W_tile()
 }
 void task_multiplicate_tile()
 {
-    printf("Executing task_multiplicate_tile\n");
+//    printf("Executing task_multiplicate_tile\n");
     memset(GV(OTile), 0, sizeof(GV(OTile)));
     // printf("I_decrypted_tile:\n");
     // Print_Matrix(GV(I_decrypted_tile), BLOCK_ROWS, BLOCK_COLS);
@@ -250,7 +248,7 @@ void task_multiplicate_tile()
 }
 void task_accumulate_result()
 {
-    printf("Executing task_accumulate_result\n");
+//    printf("Executing task_accumulate_result\n");
     // Accumulate OTile into the output matrix O
     for (i = 0; i < BLOCK_ROWS; ++i)
     {
@@ -280,7 +278,7 @@ void task_accumulate_result()
 }
 void task_getOuputRow()
 {
-    printf("Executing task_save_output_row\n");
+//    printf("Executing task_save_output_row\n");
     int outputrow = GV(row) + GV(index);
     //printf("outputrow: %d, GV(row): %d, GV(index): %d\n", outputrow, GV(row), GV(index));
 
@@ -319,10 +317,10 @@ void task_getOuputRow()
 
 void task_encryptOutput()
 {
-    printf("Executing encrypt_Output task\n");
-    printf("Plaintext output matrix is:\n");
-    Print_Matrix(GV(O), GV(I_encrypted_ECB.matrixRows),
-                 GV(W_encrypted_ECB.matrixCols));
+//    printf("Executing encrypt_Output task\n");
+    // printf("Plaintext output matrix is:\n");
+    // Print_Matrix(GV(O), GV(I_encrypted_ECB.matrixRows),
+    //              GV(W_encrypted_ECB.matrixCols));
     GV(O_encrypted_ECB) = AES256_encryptMatrix_ECB(
             GV(O), GV(O_encrypted_ECB.matrix), GV(I_encrypted_ECB.matrixRows),
             GV(W_encrypted_ECB.matrixCols));
@@ -332,7 +330,25 @@ void task_encryptOutput()
 // End Task
 void task_end()
 {
-    printf("Executing end task\n");
+//    printf("Executing end task\n");
+//    printf("Number of overflow: %d\n", overflow_counter);
+
+//    unsigned int end_time = TA0R;
+//    printf("End time: %d\n", end_time);
+
+//    unsigned int elapsed_time;
+//    elapsed_time = end_time - 0;
+    //printf("Elapsed time: %u\n", elapsed_time);
+
+    // Calculate total ticks
+    unsigned long total_ticks = ((unsigned long) overflow_counter * TA0CCR0)
+            + TA0R;
+//    printf("Total ticks: %lu\n", total_ticks);
+
+    // Convert ticks to seconds
+    float time_in_seconds = ((float) total_ticks / 32768.0);
+    printf("Total time: %d ms\n", (int) (time_in_seconds * 1000));
+
     TRANSITION_TO(task_init);
 }
 
