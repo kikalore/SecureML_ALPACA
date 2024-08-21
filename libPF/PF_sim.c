@@ -56,15 +56,13 @@ static void Timer_A0_set()
     //_BIS_SR(GIE);   //ENABLE GLOBAL INTERRRUPTS
 
 }
-//static void Timer_B0_set(){
-//    TB0CTL = TASSEL_2 + MC_2 + TBCLR;  // SMCLK, modalit� contatore continuo, azzera il timer
-//}
+
 void PF_sim_start()
 {
 //    P3DIR ^= 0xFF;
 //    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 //    PM5CTL0 &= ~LOCKLPM5;
-    rtc_init();
+    //rtc_init();
     Timer_A0_set();
 }
 

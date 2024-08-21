@@ -156,7 +156,7 @@ void write_to_gbuf(uint8_t *data_src, uint8_t *data_dest, size_t var_size)
 /** @brief Entry point upon reboot */
 int main()
 {
-    setvbuf(stdout, NULL, _IONBF, 0);
+//    setvbuf(stdout, NULL, _IONBF, 0);
     _BIS_SR(GIE);
     init();
 

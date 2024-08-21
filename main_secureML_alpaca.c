@@ -103,7 +103,7 @@ void task_init()
 {
 //    printf("Executing entry task\n");
     TA0R = 0;
-    overflow_counter=0;
+    overflow_counter = 0;
     // Initialize matrices I, W, and O
     Initialiaze_Matrix(GV(I), I_R, I_C);
 
@@ -124,7 +124,7 @@ void task_init()
     GV(blockColW) = 0;
     GV(w_row) = 0;
     GV(w_col) = 0;
-    printf("Entry successful\n");
+    //printf("Entry successful\n");
     TRANSITION_TO(task_encrypt_I);
 }
 
@@ -330,6 +330,10 @@ void task_encryptOutput()
 // End Task
 void task_end()
 {
+    free(GV(I_encrypted_ECB.matrix));
+    free(GV(W_encrypted_ECB.matrix));
+    free(GV(O_encrypted_ECB.matrix));
+
 //    printf("Executing end task\n");
 //    printf("Number of overflow: %d\n", overflow_counter);
 
@@ -347,7 +351,7 @@ void task_end()
 
     // Convert ticks to seconds
     float time_in_seconds = ((float) total_ticks / 32768.0);
-    printf("Total time: %d ms\n", (int) (time_in_seconds * 1000));
+    printf("%d ms\n", (int) (time_in_seconds * 1000));
 
     TRANSITION_TO(task_init);
 }
