@@ -48,7 +48,7 @@ int main(void)
 
     printf("Output matrix encrypted is:\n");
     Print_Matrix(O_encrypted_ECB.matrix, O_encrypted_ECB.matrixRows, O_encrypted_ECB.matrixCols);
-    decryptAndStoreInSRAM(O_encrypted_ECB.matrix, Otest, cipherkey);
+    decrypt(O_encrypted_ECB.matrix, Otest, cipherkey);
 
 
     free(I_encrypted_ECB.matrix);

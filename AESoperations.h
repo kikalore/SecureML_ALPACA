@@ -12,10 +12,10 @@
 
 void generateRandomKey(uint16_t *cipherKey);
 
-void encryptAndStoreInFRAM(const uint8_t *matrix, uint8_t *encryptedMatrixFRAM,
+void encrypt(const uint8_t *matrix, uint8_t *encryptedMatrixFRAM,
                            uint16_t *cipherKey);
 
-void decryptAndStoreInSRAM(const uint8_t *encryptedMatrixFRAM,
+void decrypt(const uint8_t *encryptedMatrixFRAM,
                            uint8_t *decryptedMatrixSRAM, uint16_t *cipherKey);
 
 encryptedMatrix AES256_encryptMatrix_ECB(uint8_t *matrix,

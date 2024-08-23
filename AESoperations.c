@@ -30,7 +30,7 @@ void generateRandomKey(uint16_t *cipherKey)
     }
 }
 
-void encryptAndStoreInFRAM(const uint8_t *matrix,
+void encrypt(const uint8_t *matrix,
                            uint8_t *encryptedMatrixFRAM,
                            uint16_t *cipherKey)
 {
@@ -38,7 +38,7 @@ void encryptAndStoreInFRAM(const uint8_t *matrix,
     AES256_encryptData(AES256_BASE, matrix, encryptedMatrixFRAM);
 }
 
-void decryptAndStoreInSRAM(const uint8_t *encryptedMatrixFRAM,
+void decrypt(const uint8_t *encryptedMatrixFRAM,
                            uint8_t *decryptedMatrixSRAM, uint16_t *cipherKey)
 {
     AES256_setDecipherKey(AES256_BASE, cipherKey, AES256_KEYLENGTH_128BIT);
@@ -62,7 +62,7 @@ void AES256_decryptMatrix_ECB(uint8_t *encryptedMatrixFRAM,
             memcpy(block, encryptedMatrixFRAM + i, BLOCK_SIZE);
         }
         // Decrypt the block
-        decryptAndStoreInSRAM(block, decryptedBlock, cipherKey);
+        decrypt(block, decryptedBlock, cipherKey);
         size_t copySize =
                 (i + BLOCK_SIZE > matrixSize) ? matrixSize - i : BLOCK_SIZE;
         memcpy(decryptedMatrixSRAM + i, decryptedBlock, copySize);
@@ -116,7 +116,7 @@ encryptedMatrix AES256_encryptMatrix_ECB(uint8_t *matrix,
                 }
             }
             // Process the block-> encrypt it
-            encryptAndStoreInFRAM(block, encryptedBlock, cipherKey);
+            encrypt(block, encryptedBlock, cipherKey);
             //copy block into encrypted matrix
             for (blockRow = 0; blockRow < BLOCK_ROWS; ++blockRow)
             {

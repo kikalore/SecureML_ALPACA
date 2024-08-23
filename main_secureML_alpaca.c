@@ -132,8 +132,24 @@ void task_init()
 void task_encrypt_I()
 {
 //    printf("Executing encrypt_I task\n");
+    unsigned int start_time_enc = TA0R;
+    unsigned int overflow_enc_start=overflow_counter;
     GV(I_encrypted_ECB) = AES256_encryptMatrix_ECB(
             GV(I), GV(I_encrypted_ECB.matrix), I_R, I_C);
+    unsigned int end_time_enc = TA0R;
+    unsigned int elapsed_time_enc;
+    unsigned int overflow_enc_end=overflow_counter;
+    unsigned int overflow_enc=overflow_enc_end-overflow_enc_start;
+    //printf("Start time: %d, End time: %d, Overflow_enc: %d\n",start_time_enc, end_time_enc, overflow_enc);
+    if(start_time_enc>end_time_enc){
+        elapsed_time_enc = (TA0CCR0 - start_time_enc) + end_time_enc;
+    }else{
+        elapsed_time_enc = end_time_enc - start_time_enc;
+    }
+    unsigned long total_ticks_enc = ((unsigned long) overflow_enc * TA0CCR0) + elapsed_time_enc;
+    float time=(((float) total_ticks_enc / 32768.0) * 1000);
+    printf("Time to encrypt: %d ms\n",(int)time);
+
     TRANSITION_TO(task_encrypt_W);
 }
 //Encrypt Weight matrix
@@ -351,7 +367,7 @@ void task_end()
 
     // Convert ticks to seconds
     float time_in_seconds = ((float) total_ticks / 32768.0);
-    printf("%d ms\n", (int) (time_in_seconds * 1000));
+    printf("Total %d ms\n", (int) (time_in_seconds * 1000));
 
     TRANSITION_TO(task_init);
 }
